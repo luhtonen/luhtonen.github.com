@@ -4,7 +4,7 @@
   <title><![CDATA[luhtonen's Blog]]></title>
   <link href="http://luhtonen.github.com/atom.xml" rel="self"/>
   <link href="http://luhtonen.github.com/"/>
-  <updated>2013-01-09T17:14:26+02:00</updated>
+  <updated>2013-01-09T17:22:35+02:00</updated>
   <id>http://luhtonen.github.com/</id>
   <author>
     <name><![CDATA[Eduard Luhtonen]]></name>
@@ -31,12 +31,17 @@
 </ol>
 
 
-<p>Step 1: creates new post
-Step 3: generate blog post from the source
-Step 4: deploy generated post to blog hosted on GitHub
-Step 5: add new post to version control
-Step 6: commit changes to local repository
-Step 7: push source to GitHub</p>
+<p>Step 1: creates new post</p>
+
+<p>Step 3: generate blog post from the source</p>
+
+<p>Step 4: deploy generated post to blog hosted on GitHub</p>
+
+<p>Step 5: add new post to version control</p>
+
+<p>Step 6: commit changes to local repository</p>
+
+<p>Step 7: push source to GitHub</p>
 ]]></content>
   </entry>
   
