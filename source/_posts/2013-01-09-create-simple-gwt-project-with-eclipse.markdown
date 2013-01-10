@@ -3,7 +3,7 @@ layout: post
 title: "Create simple GWT project with Eclipse"
 date: 2013-01-09 17:27
 comments: true
-categories: GWT Google Web Toolkit Eclipse Java
+categories: [GWT, Google Web Toolkit, Eclipse, Java]
 ---
 Google Web Toolkit is one of popular web UI development frameworks and I've decided to dig into it. There is different ways of creating GWT project: command line tools or even manually creating every bit of it, but I prefer to use IDE for my development work. Even I don't see Eclipse as IDE, but it's better than command line tools. But even when Google officially support Eclipse as it's primer tool for Android and GWT development, GWT plugin doesn't provide straight way of creating simple GWT project, but you have to make few steps to achieve it.
 
