@@ -4,7 +4,7 @@
   <title><![CDATA[Category: AIX | Eduard Luhtonen]]></title>
   <link href="http://luhtonen.github.com/blog/categories/aix/atom.xml" rel="self"/>
   <link href="http://luhtonen.github.com/"/>
-  <updated>2013-01-22T19:31:27+02:00</updated>
+  <updated>2013-01-23T01:58:18+02:00</updated>
   <id>http://luhtonen.github.com/</id>
   <author>
     <name><![CDATA[Eduard Luhtonen]]></name>
@@ -29,6 +29,8 @@
 
 <p>bos.rte                                 7.1.1.16            7.1.0.0
 ```</p></blockquote>
+
+<p>In IBM's <a href="http://pic.dhe.ibm.com/infocenter/aix/v7r1/index.jsp?topic=%2Fcom.ibm.aix.cmds%2Fdoc%2Faixcmds4%2Foslevel.htm">AIX 7.1 Information Center</a> can find more information about this command and many other.</p>
 ]]></content>
   </entry>
   
