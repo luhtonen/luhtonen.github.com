@@ -4,7 +4,7 @@
   <title><![CDATA[Eduard Luhtonen]]></title>
   <link href="http://luhtonen.github.com/atom.xml" rel="self"/>
   <link href="http://luhtonen.github.com/"/>
-  <updated>2013-01-13T04:11:22+02:00</updated>
+  <updated>2013-01-22T19:31:27+02:00</updated>
   <id>http://luhtonen.github.com/</id>
   <author>
     <name><![CDATA[Eduard Luhtonen]]></name>
@@ -12,6 +12,27 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[How to check AIX version and other useful information]]></title>
+    <link href="http://luhtonen.github.com/blog/2013/01/22/how-to-check-aix-version-and-other-useful-information/"/>
+    <updated>2013-01-22T19:22:00+02:00</updated>
+    <id>http://luhtonen.github.com/blog/2013/01/22/how-to-check-aix-version-and-other-useful-information</id>
+    <content type="html"><![CDATA[<p>I was sending technical request to our support team and needed to find out what is a version of operating system. I&#8217;ve been working with many different Unix/Linux flavors and always used <code>uname -a</code>. I was surpised to find out that on AIX this command shows OS version only with 1 digit.</p>
+
+<p>I&#8217;ve already noticed that since AIX default shell is KSH, some things are done differently on it. After a brief research I&#8217;ve found command which would produce information I needed: <code>oslevel</code>.</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>&gt; oslevel -g
+</span><span class='line'>Fileset                                 Actual Level        Maintenance Level
+</span><span class='line'>-----------------------------------------------------------------------------
+</span><span class='line'>bos.rte                                 7.1.1.16            7.1.0.0</span></code></pre></td></tr></table></div></figure>
+
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Create simple GWT project with Eclipse]]></title>

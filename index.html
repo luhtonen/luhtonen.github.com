@@ -9,7 +9,7 @@
   <meta name="author" content="Eduard Luhtonen">
 
   
-  <meta name="description" content="Google Web Toolkit is one of popular web UI development frameworks and I&#8217;ve decided to dig into it. There is different ways of creating GWT &hellip;">
+  <meta name="description" content="I was sending technical request to our support team and needed to find out what is a version of operating system. I&#8217;ve been working with many &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -63,6 +63,54 @@
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2013/01/22/how-to-check-aix-version-and-other-useful-information/">How to Check AIX Version and Other Useful Information</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-01-22T19:22:00+02:00" pubdate data-updated="true">Jan 22<span>nd</span>, 2013</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>I was sending technical request to our support team and needed to find out what is a version of operating system. I&#8217;ve been working with many different Unix/Linux flavors and always used <code>uname -a</code>. I was surpised to find out that on AIX this command shows OS version only with 1 digit.</p>
+
+<p>I&#8217;ve already noticed that since AIX default shell is KSH, some things are done differently on it. After a brief research I&#8217;ve found command which would produce information I needed: <code>oslevel</code>.</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>&gt; oslevel -g
+</span><span class='line'>Fileset                                 Actual Level        Maintenance Level
+</span><span class='line'>-----------------------------------------------------------------------------
+</span><span class='line'>bos.rte                                 7.1.1.16            7.1.0.0</span></code></pre></td></tr></table></div></figure>
+
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -323,6 +371,10 @@
 <section>
   <h1>Recent Posts</h1>
   <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2013/01/22/how-to-check-aix-version-and-other-useful-information/">How to check AIX version and other useful information</a>
+      </li>
     
       <li class="post">
         <a href="/blog/2013/01/09/create-simple-gwt-project-with-eclipse/">Create simple GWT project with Eclipse</a>
