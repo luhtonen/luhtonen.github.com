@@ -4,7 +4,7 @@
   <title><![CDATA[Category: GitHub | Eduard Luhtonen]]></title>
   <link href="http://luhtonen.github.com/blog/categories/github/atom.xml" rel="self"/>
   <link href="http://luhtonen.github.com/"/>
-  <updated>2013-03-14T15:07:28+02:00</updated>
+  <updated>2013-03-14T15:13:49+02:00</updated>
   <id>http://luhtonen.github.com/</id>
   <author>
     <name><![CDATA[Eduard Luhtonen]]></name>
@@ -33,7 +33,7 @@
 <li>Start GitHub and login using your GitHub account</li>
 <li>Set your username and email: select <em>tools</em> > <em>options...</em>, under '<em>git configuration</em>' check that your <em>username</em> and <em>email</em> are correct</li>
 <li>Define where your projects will be cloned, select <em>tools</em> > <em>options...</em> and change '<em>default storage directory</em>' to one you prefer. I've used default, so for me it is optional step</li>
-<li>Define what shell you'll prefer to use: select <em>tools</em> > <em>options...</em> and select one you prefer from '<em>default shell</em>' list.</li>
+<li>Define what shell you'll prefer to use: select <em>tools</em> > <em>options...</em> and select one you prefer from '<em>default shell</em>' list. I've tried <em>PowerShell</em> first, but there was some problems with it, so I switched to <em>Git Bash</em>.</li>
 </ol>
 
 
