@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Octopress | Eduard Luhtonen]]></title>
   <link href="http://luhtonen.github.com/blog/categories/octopress/atom.xml" rel="self"/>
   <link href="http://luhtonen.github.com/"/>
-  <updated>2013-03-14T14:25:51+02:00</updated>
+  <updated>2013-03-14T15:07:28+02:00</updated>
   <id>http://luhtonen.github.com/</id>
   <author>
     <name><![CDATA[Eduard Luhtonen]]></name>
@@ -33,7 +33,7 @@
 <li>Start GitHub and login using your GitHub account</li>
 <li>Set your username and email: select <em>tools</em> > <em>options...</em>, under '<em>git configuration</em>' check that your <em>username</em> and <em>email</em> are correct</li>
 <li>Define where your projects will be cloned, select <em>tools</em> > <em>options...</em> and change '<em>default storage directory</em>' to one you prefer. I've used default, so for me it is optional step</li>
-<li>Define what shell you'll prefer to use: select <em>tools</em> > <em>options...</em> and select one you prefer from '<em>default shell</em>' list. I prefer <em>PowerShell</em>, but <em>Git Bush</em> is good as well, <em>Cmd</em> is Windows default or you can select <em>Custom</em>.</li>
+<li>Define what shell you'll prefer to use: select <em>tools</em> > <em>options...</em> and select one you prefer from '<em>default shell</em>' list.</li>
 </ol>
 
 
@@ -60,18 +60,22 @@ username.github.com/_deploy$ git remote add origin git@github.com:username/usern
 username.github.com/_deploy$ git pull origin master
 username.github.com/_deploy$ cd ..
 username.github.com$
-<pre>
+</pre>
 
-## Creating new post ##
-Now I was ready to post my new post and I did it as following:
 
-1. `rake new_post["Post Title"]`
-2. edit post, I'm using [MarkdownPad for Windows](http://markdownpad.com/)
-3. `rake generate`
-4. `rake deploy`
-5. `git add .`
-6. `git commit -m 'some comments'`
-7. `git push origin source`
+<h2>Creating new post</h2>
+
+<p>Now I was ready to post my new post and I did it as following:</p>
+
+<ol>
+<li><code>rake new_post["Post Title"]</code></li>
+<li>edit post, I'm using <a href="http://markdownpad.com/">MarkdownPad for Windows</a></li>
+<li><code>rake generate</code></li>
+<li><code>rake deploy</code></li>
+<li><code>git add .</code></li>
+<li><code>git commit -m 'some comments'</code></li>
+<li><code>git push origin source</code></li>
+</ol>
 
 ]]></content>
   </entry>

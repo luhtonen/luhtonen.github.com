@@ -104,7 +104,7 @@
 <li>Start GitHub and login using your GitHub account</li>
 <li>Set your username and email: select <em>tools</em> > <em>options&#8230;</em>, under &#8217;<em>git configuration</em>&#8217; check that your <em>username</em> and <em>email</em> are correct</li>
 <li>Define where your projects will be cloned, select <em>tools</em> > <em>options&#8230;</em> and change &#8217;<em>default storage directory</em>&#8217; to one you prefer. I&#8217;ve used default, so for me it is optional step</li>
-<li>Define what shell you&#8217;ll prefer to use: select <em>tools</em> > <em>options&#8230;</em> and select one you prefer from &#8217;<em>default shell</em>&#8217; list. I prefer <em>PowerShell</em>, but <em>Git Bush</em> is good as well, <em>Cmd</em> is Windows default or you can select <em>Custom</em>.</li>
+<li>Define what shell you&#8217;ll prefer to use: select <em>tools</em> > <em>options&#8230;</em> and select one you prefer from &#8217;<em>default shell</em>&#8217; list.</li>
 </ol>
 
 
@@ -131,18 +131,22 @@ username.github.com/_deploy$ git remote add origin git@github.com:username/usern
 username.github.com/_deploy$ git pull origin master
 username.github.com/_deploy$ cd ..
 username.github.com$
-<pre>
+</pre>
 
-## Creating new post ##
-Now I was ready to post my new post and I did it as following:
 
-1. `rake new_post["Post Title"]`
-2. edit post, I'm using [MarkdownPad for Windows](http://markdownpad.com/)
-3. `rake generate`
-4. `rake deploy`
-5. `git add .`
-6. `git commit -m 'some comments'`
-7. `git push origin source`
+<h2>Creating new post</h2>
+
+<p>Now I was ready to post my new post and I did it as following:</p>
+
+<ol>
+<li><code>rake new_post["Post Title"]</code></li>
+<li>edit post, I&#8217;m using <a href="http://markdownpad.com/">MarkdownPad for Windows</a></li>
+<li><code>rake generate</code></li>
+<li><code>rake deploy</code></li>
+<li><code>git add .</code></li>
+<li><code>git commit -m 'some comments'</code></li>
+<li><code>git push origin source</code></li>
+</ol>
 
 </div>
 
