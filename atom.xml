@@ -4,7 +4,7 @@
   <title><![CDATA[Eduard Luhtonen]]></title>
   <link href="http://luhtonen.github.com/atom.xml" rel="self"/>
   <link href="http://luhtonen.github.com/"/>
-  <updated>2013-03-14T15:54:48+02:00</updated>
+  <updated>2013-03-14T16:05:20+02:00</updated>
   <id>http://luhtonen.github.com/</id>
   <author>
     <name><![CDATA[Eduard Luhtonen]]></name>
@@ -41,11 +41,15 @@
 <li>Download certificate from remote host and store it in <em>certs</em> directory in <em>certfile.txt</em> file. <em>remote_host</em> need to be replaced with correct host name or ip addres and <em>remote_port</em> need to be replaced with correct port.</li>
 <li>Make backup of <em>cacerts</em> file</li>
 <li>Add self signed certificate to <em>cacerts</em> file. Here&#8217;s some important options:</li>
-<li><em>-noprompt</em> - suppress interactive prompting</li>
-<li><em>-trustcerts</em> - set certificate trust attribute to yes and don&#8217;t ask from user</li>
-<li><em>-alias &#8220;alias_name&#8221;</em> - is alias used by keytool to find certificate from the list, if alias is already in the list certificate value is replace, otherwise new certificate is added to the <em>cacerts</em> file</li>
-<li><em>-storepass pass</em> - password for key store, <em>changeit</em> is default</li>
 </ol>
+
+
+<ul>
+<li> *-noprompt* - suppress interactive prompting
+<li> *-trustcerts* - set certificate trust attribute to yes and don&#8217;t ask from user
+<li> *-alias &#8220;alias_name&#8221;* - is alias used by keytool to find certificate from the list, if alias is already in the list certificate value is replace, otherwise new certificate is added to the *cacerts* file
+<li> *-storepass pass* - password for key store, *changeit* is default
+</ul>
 
 ]]></content>
   </entry>
