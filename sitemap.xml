@@ -2,34 +2,40 @@
 <urlset xmlns='http://www.sitemaps.org/schemas/sitemap/0.9'>
     <url>
         <loc>http://luhtonen.github.com/blog/2013/01/09/blogging-with-octopress-on-github/</loc>
-        <lastmod>2013-01-09T21:39:12+02:00</lastmod>
+        <lastmod>2013-03-14T13:38:09+02:00</lastmod>
     </url>
     <url>
         <loc>
             http://luhtonen.github.com/blog/2013/01/09/create-simple-gwt-project-with-eclipse/
         </loc>
-        <lastmod>2013-01-09T21:53:47+02:00</lastmod>
+        <lastmod>2013-03-14T13:38:09+02:00</lastmod>
     </url>
     <url>
         <loc>
             http://luhtonen.github.com/blog/2013/01/22/how-to-check-aix-version-and-other-useful-information/
         </loc>
-        <lastmod>2013-01-23T01:58:04+02:00</lastmod>
+        <lastmod>2013-03-14T13:38:09+02:00</lastmod>
+    </url>
+    <url>
+        <loc>
+            http://luhtonen.github.com/blog/2013/03/14/how-to-contribute-to-existing-octopress-blog-from-other-computer/
+        </loc>
+        <lastmod>2013-03-14T14:25:15+02:00</lastmod>
     </url>
     <url>
         <loc>http://luhtonen.github.com/about/</loc>
-        <lastmod>2013-01-26T12:03:54+02:00</lastmod>
+        <lastmod>2013-03-14T13:38:09+02:00</lastmod>
     </url>
     <url>
         <loc>http://luhtonen.github.com/blog/archives/</loc>
-        <lastmod>2013-01-23T01:58:04+02:00</lastmod>
+        <lastmod>2013-03-14T14:25:15+02:00</lastmod>
     </url>
     <url>
         <loc>http://luhtonen.github.com/</loc>
-        <lastmod>2013-01-23T01:58:04+02:00</lastmod>
+        <lastmod>2013-03-14T14:25:15+02:00</lastmod>
     </url>
     <url>
         <loc>http://luhtonen.github.com/robots.txt</loc>
-        <lastmod>2013-01-09T09:46:54+02:00</lastmod>
+        <lastmod>2013-03-14T13:38:09+02:00</lastmod>
     </url>
 </urlset>

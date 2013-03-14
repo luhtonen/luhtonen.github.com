@@ -5,11 +5,11 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>Category: blogging - Eduard Luhtonen</title>
+  <title>How to contribute to existing Octopress blog from other computer (Windows) - Eduard Luhtonen</title>
   <meta name="author" content="Eduard Luhtonen">
 
   
-  <meta name="description" content="Category: blogging">
+  <meta name="description" content="I&#8217;ve created my blog from my home Mac, but sometimes I wanted to add some brief posts from the work Windows computer, when thing I wanted to &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -18,7 +18,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://luhtonen.github.comblog/categories/blogging/">
+  <link rel="canonical" href="http://luhtonen.github.com/blog/2013/03/14/how-to-contribute-to-existing-octopress-blog-from-other-computer/">
   <link href="/favicon.png" rel="icon">
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
   <script src="/javascripts/modernizr-2.0.js"></script>
@@ -62,35 +62,140 @@
   <div id="main">
     <div id="content">
       <div>
-<article role="article">
+<article class="hentry" role="article">
   
   <header>
-    <h1 class="entry-title">Category: Blogging</h1>
+    
+      <h1 class="entry-title">How to Contribute to Existing Octopress Blog From Other Computer (Windows)</h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-03-14T13:42:00+02:00" pubdate data-updated="true">Mar 14<span>th</span>, 2013</time>
+        
+      </p>
     
   </header>
-  
-  <div id="blog-archives" class="category">
 
 
+<div class="entry-content"><p>I&#8217;ve created my blog from my home Mac, but sometimes I wanted to add some brief posts from the work Windows computer, when thing I wanted to add is still fresh in my memory. I was wondering how can I do it? I found helpful article from <a href="http://code.dblock.org/octopress-setting-up-a-blog-and-contributing-to-an-existing-one">dBlog.org</a>. Last part was particularly helpful, but those instructions are for Linux/Unix/Mac users and didn&#8217;t worked for me right away, but I have to do some extra steps.</p>
 
-  
-  <h2>2013</h2>
+<h2>Install Ruby for Windows</h2>
 
-<article>
-  
-<h1><a href="/blog/2013/01/09/blogging-with-octopress-on-github/">Blogging with Octopress on GitHub</a></h1>
-<time datetime="2013-01-09T09:51:00+02:00" pubdate><span class='month'>Jan</span> <span class='day'>09</span> <span class='year'>2013</span></time>
+<p>First need to install ruby. I&#8217;ve used <a href="http://rubyinstaller.org/">RubyInstaller for Windows</a> to install latest version. This is pretty streight forward and shouldn&#8217;t cause any problems.</p>
 
-<footer>
-  <span class="categories">posted in <a class='category' href='/blog/categories/blogging/'>blogging</a>, <a class='category' href='/blog/categories/github/'>github</a>, <a class='category' href='/blog/categories/octopress/'>octopress</a></span>
-</footer>
+<h2>Install GitHub for Windows</h2>
+
+<p>It is possible to install just git, but I&#8217;ve encountered some problems with connection to GitHub: <code>Permission denied (publickey)</code>. Of cause it possible to generate this key using openssh and add it to your GitHub account&#8217;s key list. But I dicided to use native <a href="http://windows.github.com/">GitHub for Windows</a>, which handled all this issues for me automatically.</p>
+
+<ol>
+<li>Download and install GitHub for Windows</li>
+<li>Start GitHub and login using your GitHub account</li>
+<li>Set your username and email: select <em>tools</em> > <em>options&#8230;</em>, under &#8217;<em>git configuration</em>&#8217; check that your <em>username</em> and <em>email</em> are correct</li>
+<li>Define where your projects will be cloned, select <em>tools</em> > <em>options&#8230;</em> and change &#8217;<em>default storage directory</em>&#8217; to one you prefer. I&#8217;ve used default, so for me it is optional step</li>
+<li>Define what shell you&#8217;ll prefer to use: select <em>tools</em> > <em>options&#8230;</em> and select one you prefer from &#8217;<em>default shell</em>&#8217; list. I prefer <em>PowerShell</em>, but <em>Git Bush</em> is good as well, <em>Cmd</em> is Windows default or you can select <em>Custom</em>.</li>
+</ol>
 
 
-</article>
+<h2>Clone your blog from GitHub</h2>
+
+<p>I&#8217;ve started cloning from GitHub Windows app and then switched to shell.</p>
+
+<ol>
+<li>From left panel in GitHub app select your account under <em>github</em> section</li>
+<li>Select your blog repository and click <em>clone</em></li>
+<li>When clone is complete select <em>open this repo</em></li>
+<li>Start shell by selecting <em>tools</em> > <em>open a shell here</em></li>
+<li>From this step on everything will be done in shell. First all required ruby gems need to be installed: <code>bundle install</code></li>
+<li>From here I&#8217;ve followed instructions from <a href="http://code.dblock.org/octopress-setting-up-a-blog-and-contributing-to-an-existing-one">dBlog.org</a> article&#8217;s last part except cloning, since it was already done:</li>
+</ol>
+
+
+<pre>
+username.github.com$ git checkout source
+username.github.com$ mkdir _deploy
+username.github.com$ cd _deploy
+username.github.com/_deploy$ git init
+username.github.com/_deploy$ git remote add origin git@github.com:username/username.github.com.git
+username.github.com/_deploy$ git pull origin master
+username.github.com/_deploy$ cd ..
+username.github.com$
+<pre>
+
+## Creating new post ##
+Now I was ready to post my new post and I did it as following:
+
+1. `rake new_post["Post Title"]`
+2. edit post, I'm using [MarkdownPad for Windows](http://markdownpad.com/)
+3. `rake generate`
+4. `rake deploy`
+5. `git add .`
+6. `git commit -m 'some comments'`
+7. `git push origin source`
 
 </div>
 
+
+  <footer>
+    <p class="meta">
+      
   
+
+<span class="byline author vcard">Posted by <span class="fn">Eduard Luhtonen</span></span>
+
+      
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-03-14T13:42:00+02:00" pubdate data-updated="true">Mar 14<span>th</span>, 2013</time>
+      
+
+<span class="categories">
+  
+    <a class='category' href='/blog/categories/github/'>GitHub</a>, <a class='category' href='/blog/categories/octopress/'>Octopress</a>, <a class='category' href='/blog/categories/windows/'>Windows</a>, <a class='category' href='/blog/categories/blog/'>blog</a>
+  
+</span>
+
+
+    </p>
+    
+      <div class="sharing">
+  
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://luhtonen.github.com/blog/2013/03/14/how-to-contribute-to-existing-octopress-blog-from-other-computer/" data-via="eluhtonen" data-counturl="http://luhtonen.github.com/blog/2013/03/14/how-to-contribute-to-existing-octopress-blog-from-other-computer/" >Tweet</a>
+  
+  
+  
+    <div class="fb-like" data-send="true" data-width="450" data-show-faces="false"></div>
+  
+</div>
+
+    
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/blog/2013/01/22/how-to-check-aix-version-and-other-useful-information/" title="Previous Post: How to check AIX version and other useful information">&laquo; How to check AIX version and other useful information</a>
+      
+      
+    </p>
+  </footer>
 </article>
 
 </div>
