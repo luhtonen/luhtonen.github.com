@@ -23,16 +23,22 @@
         <lastmod>2013-03-14T15:13:35+02:00</lastmod>
     </url>
     <url>
+        <loc>
+            http://luhtonen.github.com/blog/2013/03/14/how-make-java-to-trust-self-signed-certificate/
+        </loc>
+        <lastmod>2013-03-14T15:54:21+02:00</lastmod>
+    </url>
+    <url>
         <loc>http://luhtonen.github.com/about/</loc>
         <lastmod>2013-03-14T13:38:09+02:00</lastmod>
     </url>
     <url>
         <loc>http://luhtonen.github.com/blog/archives/</loc>
-        <lastmod>2013-03-14T15:13:35+02:00</lastmod>
+        <lastmod>2013-03-14T15:54:21+02:00</lastmod>
     </url>
     <url>
         <loc>http://luhtonen.github.com/</loc>
-        <lastmod>2013-03-14T15:13:35+02:00</lastmod>
+        <lastmod>2013-03-14T15:54:21+02:00</lastmod>
     </url>
     <url>
         <loc>http://luhtonen.github.com/robots.txt</loc>

@@ -5,12 +5,11 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>About me - Eduard Luhtonen</title>
+  <title>How make Java to trust self signed certificate - Eduard Luhtonen</title>
   <meta name="author" content="Eduard Luhtonen">
 
   
-  <meta name="description" content="About Me Eduard Luhtonen
-Java and Web developer based in Helsinki, Finland. Dynamic leader of software development teams with strong technical &hellip;">
+  <meta name="description" content="We&#8217;ve been doing update to our customers systems and one of the part what was update Java to new version. With the update we&#8217;ve lost our &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -19,7 +18,7 @@ Java and Web developer based in Helsinki, Finland. Dynamic leader of software de
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://luhtonen.github.com/about/">
+  <link rel="canonical" href="http://luhtonen.github.com/blog/2013/03/14/how-make-java-to-trust-self-signed-certificate/">
   <link href="/favicon.png" rel="icon">
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
   <script src="/javascripts/modernizr-2.0.js"></script>
@@ -63,32 +62,99 @@ Java and Web developer based in Helsinki, Finland. Dynamic leader of software de
   <div id="main">
     <div id="content">
       <div>
-<article role="article">
+<article class="hentry" role="article">
   
   <header>
-    <h1 class="entry-title">About Me</h1>
+    
+      <h1 class="entry-title">How Make Java to Trust Self Signed Certificate</h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-03-14T15:24:00+02:00" pubdate data-updated="true">Mar 14<span>th</span>, 2013</time>
+        
+      </p>
     
   </header>
-  
-  <p><img class="right" src = "/images/edu.png" />
-<a href="http://luhtonen.github.com/about/">Eduard Luhtonen</a><br/>
-Java and Web developer based in Helsinki, Finland.</p>
-
-<ul>
-<li>Dynamic leader of software development teams with strong technical background offering over 15 years experience in Java and JEE projects design, implementation, commissioning and maintenance</li>
-<li>Skilled in all phases of the software development lifecycle; experienced in translating business requirements into technical solutions for large and demanding customers, leading international teams of developers; expert in requirements definition and system architecture design; skilled developer tireless in problem solving</li>
-<li>Multilingual person not only fluent in Java, but knows lots of other languages C# (.NET), Python, Perl, Tcl, Ruby, C, Objective-C and mutliple other including older like PL/1, as well fluent in some human languages English, Finnish, Russian and basics French even some words in German</li>
-<li>Certified Scrum Master</li>
-</ul>
 
 
-  
-    <footer>
+<div class="entry-content"><p>We&#8217;ve been doing update to our customers systems and one of the part what was update Java to new version. With the update we&#8217;ve lost our <em>cacerts</em> file. In result Java stopped to trust our self signed certificate: <code>The certificate issued by &lt;..&gt; is not trusted;</code></p>
+
+<p>To resolve this issue, we needed to add self signed certifate to Java&#8217;s trusted certificate list.</p>
+
+<pre>
+> sudo su -
+> cd <i>install_directory</i>
+> mkdir certs
+> openssl s_client -connect <i>remote_host</i>:<i>remote_port</i> 2>&1 | sed -ne '/-BEGIN CERTIFICATE-/,/-END CERTIFICATE-/p' > certs/certfile.txt
+> cp java/jre/lib/security/cacerts java/jre/lib/security/cacerts-`date -u +"%Y%m%d"`
+> java/jre/bin/keytool -import -noprompt -trustcacerts -alias "mycert" -file certs/certfile.txt -keystore java/jre/lib/security/cacerts -storepass changeit
+</pre>
+
+
+<h4>Explanations</h4>
+
+<ol>
+<li>Since we have our tool installed as <em>root</em>, we need to <em>sudo</em> as <em>root</em></li>
+<li>Change to tool installation directory, replace <em>install_directory</em> with correct value. Java was installed under it in <em>java</em> subdirectory.</li>
+<li>Create directory to store certificate to be downloaded from  remote host</li>
+<li>Download certificate from remote host and store it in <em>certs</em> directory in <em>certfile.txt</em> file. <em>remote_host</em> need to be replaced with correct host name or ip addres and <em>remote_port</em> need to be replaced with correct port.</li>
+<li>Make backup of <em>cacerts</em> file</li>
+<li>Add self signed certificate to <em>cacerts</em> file. Here&#8217;s some important options:</li>
+<li><em>-noprompt</em> - suppress interactive prompting</li>
+<li><em>-trustcerts</em> - set certificate trust attribute to yes and don&#8217;t ask from user</li>
+<li><em>-alias &#8220;alias_name&#8221;</em> - is alias used by keytool to find certificate from the list, if alias is already in the list certificate value is replace, otherwise new certificate is added to the <em>cacerts</em> file</li>
+<li><em>-storepass pass</em> - password for key store, <em>changeit</em> is default</li>
+</ol>
+
+</div>
+
+
+  <footer>
+    <p class="meta">
       
-      
-        <div class="sharing">
   
-  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://luhtonen.github.com/about/index.html" data-via="eluhtonen" data-counturl="http://luhtonen.github.com/about/index.html" >Tweet</a>
+
+<span class="byline author vcard">Posted by <span class="fn">Eduard Luhtonen</span></span>
+
+      
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-03-14T15:24:00+02:00" pubdate data-updated="true">Mar 14<span>th</span>, 2013</time>
+      
+
+<span class="categories">
+  
+    <a class='category' href='/blog/categories/aix/'>AIX</a>, <a class='category' href='/blog/categories/certification/'>Certification</a>, <a class='category' href='/blog/categories/java/'>Java</a>, <a class='category' href='/blog/categories/ssl/'>SSL</a>, <a class='category' href='/blog/categories/security/'>Security</a>, <a class='category' href='/blog/categories/unix/'>Unix</a>
+  
+</span>
+
+
+    </p>
+    
+      <div class="sharing">
+  
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://luhtonen.github.com/blog/2013/03/14/how-make-java-to-trust-self-signed-certificate/" data-via="eluhtonen" data-counturl="http://luhtonen.github.com/blog/2013/03/14/how-make-java-to-trust-self-signed-certificate/" >Tweet</a>
   
   
   
@@ -96,9 +162,14 @@ Java and Web developer based in Helsinki, Finland.</p>
   
 </div>
 
+    
+    <p class="meta">
       
-    </footer>
-  
+        <a class="basic-alignment left" href="/blog/2013/03/14/how-to-contribute-to-existing-octopress-blog-from-other-computer/" title="Previous Post: How to contribute to existing Octopress blog from other computer (Windows)">&laquo; How to contribute to existing Octopress blog from other computer (Windows)</a>
+      
+      
+    </p>
+  </footer>
 </article>
 
 </div>

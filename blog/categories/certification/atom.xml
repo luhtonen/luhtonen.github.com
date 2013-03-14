@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
 
-  <title><![CDATA[Category: Unix | Eduard Luhtonen]]></title>
-  <link href="http://luhtonen.github.com/blog/categories/unix/atom.xml" rel="self"/>
+  <title><![CDATA[Category: Certification | Eduard Luhtonen]]></title>
+  <link href="http://luhtonen.github.com/blog/categories/certification/atom.xml" rel="self"/>
   <link href="http://luhtonen.github.com/"/>
   <updated>2013-03-14T15:54:48+02:00</updated>
   <id>http://luhtonen.github.com/</id>
@@ -47,27 +47,6 @@
 <li><em>-storepass pass</em> - password for key store, <em>changeit</em> is default</li>
 </ol>
 
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[How to check AIX version and other useful information]]></title>
-    <link href="http://luhtonen.github.com/blog/2013/01/22/how-to-check-aix-version-and-other-useful-information/"/>
-    <updated>2013-01-22T19:22:00+02:00</updated>
-    <id>http://luhtonen.github.com/blog/2013/01/22/how-to-check-aix-version-and-other-useful-information</id>
-    <content type="html"><![CDATA[<p>I was sending technical request to our support team and needed to find out what is a version of operating system. I've been working with many different Unix/Linux flavors and always used <code>uname -a</code>. I was surpised to find out that on AIX this command shows OS version only with 1 digit.</p>
-
-<p>I've already noticed that since AIX default shell is KSH, some things are done differently on it. After a brief research I've found command which would produce information I needed: <code>oslevel</code>.
-```</p>
-
-<blockquote><p>oslevel -g</p>
-
-<h2>Fileset                                 Actual Level        Maintenance Level</h2>
-
-<p>bos.rte                                 7.1.1.16            7.1.0.0
-```</p></blockquote>
-
-<p>In IBM's <a href="http://pic.dhe.ibm.com/infocenter/aix/v7r1/index.jsp?topic=%2Fcom.ibm.aix.cmds%2Fdoc%2Faixcmds4%2Foslevel.htm">AIX 7.1 Information Center</a> can find more information about this command and many other.</p>
 ]]></content>
   </entry>
   
