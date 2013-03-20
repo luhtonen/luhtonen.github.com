@@ -5,11 +5,11 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>Category: Security - Eduard Luhtonen</title>
+  <title>How to check memory usage on AIX - Eduard Luhtonen</title>
   <meta name="author" content="Eduard Luhtonen">
 
   
-  <meta name="description" content="Category: Security">
+  <meta name="description" content="AIX suppose to be Unix system, but there is lots of things are done very differently from other Unix systems. I needed to check memory usage on AIX &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -18,7 +18,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://luhtonen.github.comblog/categories/security/">
+  <link rel="canonical" href="http://luhtonen.github.com/blog/2013/03/20/how-to-check-memory-usage-on-aix/">
   <link href="/favicon.png" rel="icon">
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
   <script src="/javascripts/modernizr-2.0.js"></script>
@@ -62,35 +62,189 @@
   <div id="main">
     <div id="content">
       <div>
-<article role="article">
+<article class="hentry" role="article">
   
   <header>
-    <h1 class="entry-title">Category: Security</h1>
+    
+      <h1 class="entry-title">How to Check Memory Usage on AIX</h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-03-20T11:31:00+02:00" pubdate data-updated="true">Mar 20<span>th</span>, 2013</time>
+        
+      </p>
     
   </header>
-  
-  <div id="blog-archives" class="category">
 
 
+<div class="entry-content"><p>AIX suppose to be Unix system, but there is lots of things are done very differently from other Unix systems. I needed to check memory usage on AIX machine, but didn&#8217;t found well-known command <code>free</code>. After quick research on Web I found AIX own command: <code>svmon</code>. To get global information about memory usage only required option is <code>-G</code>.</p>
 
-  
-  <h2>2013</h2>
+<pre>
+> svmon -G
+               size       inuse        free         pin     virtual   mmode
+memory      1003520     1000352        3168      466861     1468212     Ded
+pg space    2097152      829774
 
-<article>
-  
-<h1><a href="/blog/2013/03/14/how-make-java-to-trust-self-signed-certificate/">How make Java to trust self signed certificate</a></h1>
-<time datetime="2013-03-14T15:24:00+02:00" pubdate><span class='month'>Mar</span> <span class='day'>14</span> <span class='year'>2013</span></time>
+               work        pers        clnt       other
+pin          435310           0           0       31551
+in use       901152           0       99200
 
-<footer>
-  <span class="categories">posted in <a class='category' href='/blog/categories/aix/'>AIX</a>, <a class='category' href='/blog/categories/certification/'>Certification</a>, <a class='category' href='/blog/categories/java/'>Java</a>, <a class='category' href='/blog/categories/ssl/'>SSL</a>, <a class='category' href='/blog/categories/security/'>Security</a>, <a class='category' href='/blog/categories/unix/'>Unix</a></span>
-</footer>
+PageSize   PoolSize       inuse        pgsp         pin     virtual
+s    4 KB         -      276720      252814       67101      409300
+m   64 KB         -       45227       36060       24985       66182
+</pre>
 
 
-</article>
+<h4>List installed software on AIX</h4>
+
+<p><code>lslpp</code> is the tool to list installed softwares on AIX. 2 switchs are more useful:</p>
+
+<pre>
+-h
+        Displays the installation and update history information for the 
+        specified fileset. You cannot use this flag with the -J flag.
+
+-L
+        Displays the name, most recent level, state, and a description of 
+        the specified fileset. The build date, which is specified by the 
+        year and the week in the form of yyww (for example, 0852), is also 
+        displayed for a fileset, if it has one. Part information (usr, 
+        root, and share) is consolidated into the same listing. For 
+        formatted filesets, it displays the most recent maintenance or 
+        technology level for the specified filesets. In addition, this 
+        flag lists any subsystem selective fixes that were installed on 
+        top of the maintenance or technology level. RPM and ISMP images 
+        are also listed.
+</pre>
+
+
+<p>Sample from <code>lslpp -h all</code> (not a full listing)</p>
+
+<pre>
+ > lslpp -h all
+  Fileset         Level     Action       Status       Date         Time
+  ----------------------------------------------------------------------------
+Path: /usr/lib/objrepos
+  Firefox.base.adt
+                 3.5.13.1   COMMIT       COMPLETE     12/05/12     12:15:19
+
+  Firefox.base.rte
+                 3.5.13.1   COMMIT       COMPLETE     12/05/12     12:15:19
+
+  GSKit8.gskcrypt32.ppc.rte
+                 8.0.14.6   COMMIT       COMPLETE     03/26/12     09:51:05
+
+  GSKit8.gskcrypt64.ppc.rte
+                8.0.14.14   COMMIT       COMPLETE     01/03/13     12:10:33
+
+  GSKit8.gskssl32.ppc.rte
+                 8.0.14.6   COMMIT       COMPLETE     03/26/12     09:51:13
+
+  GSKit8.gskssl64.ppc.rte
+                8.0.14.14   COMMIT       COMPLETE     01/03/13     12:10:35
+...
+</pre>
+
+
+<p>Sample from <code>lslpp -L all</code> (not a full listing)</p>
+
+<pre>
+> lslpp -L all
+  Fileset                      Level  State  Type  Description (Uninstaller)
+  ----------------------------------------------------------------------------
+  Firefox.base.adt          3.5.13.1    C     F    Firefox Development Tools
+  Firefox.base.rte          3.5.13.1    C     F    Firefox Web Browser
+  GSKit8.gskcrypt32.ppc.rte
+                            8.0.14.6    C     F    IBM GSKit Cryptography Runtime
+  GSKit8.gskcrypt64.ppc.rte
+                           8.0.14.14    C     F    IBM GSKit Cryptography Runtime
+  GSKit8.gskssl32.ppc.rte   8.0.14.6    C     F    IBM GSKit SSL Runtime With
+                                                   Acme Toolkit
+  GSKit8.gskssl64.ppc.rte  8.0.14.14    C     F    IBM GSKit SSL Runtime With
+                                                   Acme Toolkit
+...
+
+State codes:
+ A -- Applied.
+ B -- Broken.
+ C -- Committed.
+ E -- EFIX Locked.
+ O -- Obsolete.  (partially migrated to newer version)
+ ? -- Inconsistent State...Run lppchk -v.
+
+Type codes:
+ F -- Installp Fileset
+ P -- Product
+ C -- Component
+ T -- Feature
+ R -- RPM Package
+E -- Interim Fix
+</pre>
 
 </div>
 
+
+  <footer>
+    <p class="meta">
+      
   
+
+<span class="byline author vcard">Posted by <span class="fn">Eduard Luhtonen</span></span>
+
+      
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-03-20T11:31:00+02:00" pubdate data-updated="true">Mar 20<span>th</span>, 2013</time>
+      
+
+<span class="categories">
+  
+    <a class='category' href='/blog/categories/aix/'>AIX</a>, <a class='category' href='/blog/categories/unix/'>Unix</a>
+  
+</span>
+
+
+    </p>
+    
+      <div class="sharing">
+  
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://luhtonen.github.com/blog/2013/03/20/how-to-check-memory-usage-on-aix/" data-via="eluhtonen" data-counturl="http://luhtonen.github.com/blog/2013/03/20/how-to-check-memory-usage-on-aix/" >Tweet</a>
+  
+  
+  
+    <div class="fb-like" data-send="true" data-width="450" data-show-faces="false"></div>
+  
+</div>
+
+    
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/blog/2013/03/14/how-make-java-to-trust-self-signed-certificate/" title="Previous Post: How make Java to trust self signed certificate">&laquo; How make Java to trust self signed certificate</a>
+      
+      
+    </p>
+  </footer>
 </article>
 
 </div>
