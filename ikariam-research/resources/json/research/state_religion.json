@@ -1,0 +1,10 @@
+{
+	"id": "state_religion",
+	"name": "State Religion",
+	"category": "science",
+	"costs": 202074,
+	"description": "",
+	"allows": "",
+	"effect": "",
+	"requirements": []
+}

@@ -1,0 +1,10 @@
+{
+	"id": "dry-dock",
+	"name": "Dry-Dock",
+	"category": "military",
+	"costs": 8,
+	"description": "",
+	"allows": "",
+	"effect": "",
+	"requirements": []
+}

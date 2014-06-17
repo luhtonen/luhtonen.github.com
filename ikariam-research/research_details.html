@@ -1,0 +1,12 @@
+<h4>{{researchDetails.name}}</h4>
+<hr />
+<h6>{{researchDetails.category}}</h6>
+<p>{{researchDetails.description}}</p>
+<p ng-show="researchDetails.allows">Allows: {{researchDetails.allows}}</p>
+<p ng-show="researchDetails.effect">Effect: {{researchDetails.effect}}</p>
+<div ng-show="researchDetails.requirements">Requires: 
+    <ul>
+        <li ng-repeat="req in researchDetails.requirements">{{researchById(req)}}</li>
+    </ul>
+</div>
+<p>Costs: {{researchDetails.costs}}</p>

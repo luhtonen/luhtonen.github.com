@@ -1,0 +1,10 @@
+{
+	"id": "paper",
+	"name": "Paper",
+	"category": "science",
+	"costs": 30,
+	"description": "",
+	"allows": "",
+	"effect": "",
+	"requirements": []
+}

@@ -1,0 +1,10 @@
+{
+	"id": "invention",
+	"name": "Invention",
+	"category": "science",
+	"costs": 4320,
+	"description": "",
+	"allows": "",
+	"effect": "",
+	"requirements": []
+}

@@ -1,0 +1,10 @@
+{
+	"id": "gunpowder",
+	"name": "Gunpowder",
+	"category": "military",
+	"costs": 38400,
+	"description": "",
+	"allows": "",
+	"effect": "",
+	"requirements": []
+}

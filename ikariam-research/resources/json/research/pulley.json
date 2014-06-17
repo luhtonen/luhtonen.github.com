@@ -1,0 +1,10 @@
+{
+	"id": "pulley",
+	"name": "Pulley",
+	"category": "economy",
+	"costs": 24,
+	"description": "",
+	"allows": "",
+	"effect": "",
+	"requirements": []
+}

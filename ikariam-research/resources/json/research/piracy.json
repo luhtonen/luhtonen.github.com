@@ -1,0 +1,10 @@
+{
+	"id": "piracy",
+	"name": "Piracy",
+	"category": "seafaring",
+	"costs": 18,
+	"description": "",
+	"allows": "",
+	"effect": "",
+	"requirements": []
+}

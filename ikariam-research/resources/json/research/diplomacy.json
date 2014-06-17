@@ -1,0 +1,10 @@
+{
+	"id": "diplomacy",
+	"name": "Diplomacy",
+	"category": "seafaring",
+	"costs": 17064,
+	"description": "",
+	"allows": "",
+	"effect": "",
+	"requirements": []
+}

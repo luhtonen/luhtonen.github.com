@@ -1,0 +1,10 @@
+{
+	"id": "anatomy",
+	"name": "Anatomy",
+	"category": "science",
+	"costs": 14952,
+	"description": "We have learned a lot about the human body! Now we can send doctors into battle to help the wounded soldiers to quickly get back on their feet again. Of course they can mix the right tinctures and some doctors even know a secret recipe for a mixture that makes our fighters even braver.",
+	"allows": "",
+	"effect": "",
+	"requirements": []
+}

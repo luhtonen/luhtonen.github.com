@@ -1,0 +1,10 @@
+{
+	"id": "caulking",
+	"name": "Caulking",
+	"category": "seafaring",
+	"costs": 53000,
+	"description": "",
+	"allows": "",
+	"effect": "",
+	"requirements": []
+}

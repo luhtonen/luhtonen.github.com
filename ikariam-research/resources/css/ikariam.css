@@ -1,0 +1,137 @@
+table {
+    text-align: center;
+}
+th {
+    text-align: center;
+}
+/*************/
+/* Darktable */
+/*************/
+/* Table main body background */
+table.darktable
+{ background: #FAEAC6;
+  border: 2px solid #DC8;      /* Table main border */
+  border-collapse: collapse;
+  font-size: 100%;
+  margin: 5px;
+}
+table.darktable th, table.darktable td   /* each cell in the table */
+{ border: 1px solid #DC8;
+  padding: 2px;
+}
+/* Table Heading background */
+table.darktable th
+{ background: #FFFFFF;
+  border: 1px solid #DC8;     /* Heading border */
+}
+/* Table caption */
+table.darktable caption
+{ font-size: 110%;
+  font-weight: bold;
+}
+/*******************/
+/* Title (classes) */
+/*******************/
+.title,
+.title1
+{ background: #EEE !important;                      /* Light color */
+  border: 1px solid #DC8; 
+  text-align: center;
+  font-weight: bold;
+}
+.title2
+{ background: #FEA !important;                     /* Medium color */
+  border: 1px solid #DC8;
+  text-align: center;
+  font-weight: bold;
+}
+.title3
+{ background: #FD9 !important;                     /* Dark color */  
+  border: 1px solid #DC8;
+  text-align: center;
+  font-weight: bold;
+}
+/*******************/
+/* Research colors */
+/*******************/
+.economy,
+.eco
+{ background: lightgreen !important;
+  border: 1px solid #DC8;
+  border-radius: 1em;
+  -webkit-border-radius: 1em; /* Chrome + Safari */
+  -moz-border-radius: 1em;    /* Firefox */
+  -ms-border-radius: 1em;     /* Internet Explorer */
+  -khtml-border-radius: 1em;  /* Konqueror */
+  -o-border-radius: 1em;      /* Opera */
+}
+.military,
+.mil
+{ background: lightpink !important;
+  border: 1px solid #DC8;
+  border-radius: 1em;
+  -webkit-border-radius: 1em; /* Chrome + Safari */
+  -moz-border-radius: 1em;    /* Firefox */
+  -ms-border-radius: 1em;     /* Internet Explorer */
+  -khtml-border-radius: 1em;  /* Konqueror*/
+  -o-border-radius: 1em;      /* Opera */
+}
+.seafaring,
+.sea
+{ background: lightblue !important;
+  border: 1px solid #DC8;
+  border-radius: 1em;
+  -webkit-border-radius: 1em; /* Chrome + Safari */
+  -moz-border-radius: 1em;    /* Firefox */
+  -ms-border-radius: 1em;     /* Internet Explorer */
+  -khtml-border-radius: 1em;  /* Konqueror */
+  -o-border-radius: 1em;      /* Opera */
+}
+.science,
+.sci
+{ background: lightsalmon !important;
+  border: 1px solid #DC8;
+  border-radius: 1em;
+  -webkit-border-radius: 1em; /* Chrome + Safari */
+  -moz-border-radius: 1em;    /* Firefox */
+  -ms-border-radius: 1em;     /* Internet Explorer */
+  -khtml-border-radius: 1em;  /* Konqueror */
+  -o-border-radius: 1em;      /* Opera */
+}
+hr
+{ background: #DC8;
+  color: #DC8;
+  margin: 1px 0px;
+  border-top: #DC8;
+  border-right: #DC8;
+  border-left: #DC8; 
+  height: 1px;
+  display: block;
+  border-width: 1px;
+}
+.researchPanel
+{
+    position: fixed;
+    top: 5px;
+    padding: 10px;
+    margin-right: 10px;
+}
+.researchDetails {
+    padding: 10px;
+}
+a {
+    cursor: pointer;
+}
+.pathRow {
+    padding: 1px 5px;
+    margin: 1px;
+}
+.lastPathRow {
+    font-weight: bold !important;
+    -moz-box-shadow:    1px 1px 3px 0px #6A56DB; /* Firefox */
+    -webkit-box-shadow: 1px 1px 3px 0px #6A56DB; /* Chrome + Safari */
+    -ms-box-shadow:     1px 1px 3px 0px #6A56DB; /* Internet Explorer */
+    -khtml-box-shadow:  1px 1px 3px 0px #6A56DB; /* Konqueror */
+    -o-box-shadow:      1px 1px 3px 0px #6A56DB; /* Opera */
+    box-shadow:         1px 1px 3px 0px #6A56DB;
+}

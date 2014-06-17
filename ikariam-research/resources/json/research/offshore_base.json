@@ -1,0 +1,10 @@
+{
+	"id": "offshore_base",
+	"name": "Offshore Base",
+	"category": "seafaring",
+	"costs": 475000,
+	"description": "",
+	"allows": "",
+	"effect": "",
+	"requirements": []
+}

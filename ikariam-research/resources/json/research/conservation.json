@@ -1,0 +1,10 @@
+{
+	"id": "conservation",
+	"name": "Conservation",
+	"category": "economy",
+	"costs": 12,
+	"description": "",
+	"allows": "",
+	"effect": "",
+	"requirements": []
+}

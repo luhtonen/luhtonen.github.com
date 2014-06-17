@@ -1,0 +1,10 @@
+{
+	"id": "pressure_chamber",
+	"name": "Pressure Chamber",
+	"category": "science",
+	"costs": 209880,
+	"description": "",
+	"allows": "",
+	"effect": "",
+	"requirements": []
+}

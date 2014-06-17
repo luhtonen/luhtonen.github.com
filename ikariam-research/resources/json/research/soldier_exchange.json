@@ -1,0 +1,10 @@
+{
+	"id": "soldier_exchange",
+	"name": "Soldier Exchange",
+	"category": "economy",
+	"costs": 56000,
+	"description": "",
+	"allows": "",
+	"effect": "",
+	"requirements": []
+}

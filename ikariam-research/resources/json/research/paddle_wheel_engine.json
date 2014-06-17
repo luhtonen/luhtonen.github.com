@@ -1,0 +1,10 @@
+{
+	"id": "paddle_wheel_engine",
+	"name": "Paddle Wheel Engine",
+	"category": "seafaring",
+	"costs": 38400,
+	"description": "",
+	"allows": "",
+	"effect": "",
+	"requirements": []
+}

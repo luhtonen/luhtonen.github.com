@@ -1,0 +1,10 @@
+{
+	"id": "governor",
+	"name": "Governor",
+	"category": "military",
+	"costs": 11592,
+	"description": "",
+	"allows": "",
+	"effect": "",
+	"requirements": []
+}

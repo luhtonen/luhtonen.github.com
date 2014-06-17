@@ -1,0 +1,10 @@
+{
+	"id": "mechanical_pen",
+	"name": "Mechanical Pen",
+	"category": "science",
+	"costs": 31968,
+	"description": "",
+	"allows": "",
+	"effect": "",
+	"requirements": []
+}

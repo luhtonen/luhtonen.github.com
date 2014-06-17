@@ -1,0 +1,10 @@
+{
+	"id": "robotics",
+	"name": "Robotics",
+	"category": "military",
+	"costs": 106560,
+	"description": "",
+	"allows": "",
+	"effect": "",
+	"requirements": []
+}

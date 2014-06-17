@@ -1,0 +1,10 @@
+{
+	"id": "espionage",
+	"name": "Espionage",
+	"category": "science",
+	"costs": 420,
+	"description": "",
+	"allows": "",
+	"effect": "",
+	"requirements": []
+}

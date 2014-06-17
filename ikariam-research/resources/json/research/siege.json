@@ -1,0 +1,10 @@
+{
+	"id": "siege",
+	"name": "Siege",
+	"category": "military",
+	"costs": 1032,
+	"description": "",
+	"allows": "",
+	"effect": "",
+	"requirements": []
+}

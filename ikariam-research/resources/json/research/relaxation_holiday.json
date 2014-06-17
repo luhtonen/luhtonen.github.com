@@ -1,0 +1,10 @@
+{
+	"id": "relaxation_holiday",
+	"name": "Relaxation holiday",
+	"category": "economy",
+	"costs": 7200,
+	"description": "",
+	"allows": "",
+	"effect": "",
+	"requirements": []
+}

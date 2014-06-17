@@ -1,0 +1,10 @@
+{
+	"id": "wine_press",
+	"name": "Wine Press",
+	"category": "economy",
+	"costs": 48000,
+	"description": "",
+	"allows": "",
+	"effect": "",
+	"requirements": []
+}

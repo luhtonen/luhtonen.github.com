@@ -1,0 +1,10 @@
+{
+	"id": "birds_flight",
+	"name": "Bird`s Flight",
+	"category": "science",
+	"costs": 46848,
+	"description": "We have learned how to fly like the birds! Now we can build a machine that can lift a man up into the skies and can whizz above the heads of our enemies with breath-taking speed, shooting arrows far behind the front lines.",
+	"allows": "",
+	"effect": "",
+	"requirements": []
+}

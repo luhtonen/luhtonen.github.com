@@ -1,0 +1,10 @@
+{
+	"id": "government_formation",
+	"name": "Government Formation",
+	"category": "science",
+	"costs": 2836,
+	"description": "",
+	"allows": "",
+	"effect": "",
+	"requirements": []
+}

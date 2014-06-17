@@ -1,0 +1,10 @@
+{
+	"id": "ballistics",
+	"name": "Ballistics",
+	"category": "military",
+	"costs": 3264,
+	"description": "Now we know how to shoot arrows at our enemies. We should start right now to train our soldiers with these skills, so we can have archers joining our army in battle soon!",
+	"allows": "",
+	"effect": "",
+	"requirements": []
+}

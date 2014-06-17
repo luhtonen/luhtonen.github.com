@@ -1,0 +1,10 @@
+{
+	"id": "carpentry",
+	"name": "Carpentry",
+	"category": "seafaring",
+	"costs": 8,
+	"description": "Our island's forests provide us with excellent building material so that we can create strong woodwork for the roofs of our buildings. But to ensure that this is the case, lumber must be carefully selected and handled properly! A carpenter in our town would take care of this and would use up a lot less building material!",
+	"allows": "",
+	"effect": "",
+	"requirements": []
+}

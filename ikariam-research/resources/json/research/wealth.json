@@ -1,0 +1,10 @@
+{
+	"id": "wealth",
+	"name": "Wealth",
+	"category": "economy",
+	"costs": 112,
+	"description": "",
+	"allows": "",
+	"effect": "",
+	"requirements": []
+}

@@ -1,0 +1,10 @@
+{
+	"id": "greek_fire",
+	"name": "Greek Fire",
+	"category": "seafaring",
+	"costs": 7020,
+	"description": "",
+	"allows": "",
+	"effect": "",
+	"requirements": []
+}

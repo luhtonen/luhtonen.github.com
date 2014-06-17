@@ -1,0 +1,10 @@
+{
+	"id": "logistics",
+	"name": "Logistics",
+	"category": "military",
+	"costs": 25632,
+	"description": "",
+	"allows": "",
+	"effect": "",
+	"requirements": []
+}

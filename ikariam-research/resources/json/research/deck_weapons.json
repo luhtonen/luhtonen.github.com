@@ -1,0 +1,10 @@
+{
+	"id": "deck_weapons",
+	"name": "Deck Weapons",
+	"category": "seafaring",
+	"costs": 12,
+	"description": "",
+	"allows": "",
+	"effect": "",
+	"requirements": []
+}

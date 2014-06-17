@@ -1,0 +1,10 @@
+{
+	"id": "cannon_casting",
+	"name": "Cannon Casting",
+	"category": "military",
+	"costs": 209040,
+	"description": "Our iron is getting heavier and harder: now we can even build barrels through which we can fire huge cannon balls at our enemies! If we can even fire bombs from a long distance our enemies and their town walls will tremble in fear!",
+	"allows": "",
+	"effect": "",
+	"requirements": []
+}

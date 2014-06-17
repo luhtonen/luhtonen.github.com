@@ -1,0 +1,10 @@
+{
+	"id": "bureaucracy",
+	"name": "Bureaucracy",
+	"category": "economy",
+	"costs": 106560,
+	"description": "Now our palace has even more shelves, boxes and drawers, more piles of records and forms as well as clerks who can understand it all. Finally we can afford to build and administer an additional building in our towns!",
+	"allows": "",
+	"effect": "",
+	"requirements": []
+}

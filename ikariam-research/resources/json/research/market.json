@@ -1,0 +1,10 @@
+{
+	"id": "market",
+	"name": "Market",
+	"category": "seafaring",
+	"costs": 3264,
+	"description": "",
+	"allows": "",
+	"effect": "",
+	"requirements": []
+}

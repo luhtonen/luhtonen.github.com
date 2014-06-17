@@ -1,0 +1,13 @@
+{ 
+"sea": {"name": "Seafaring",
+	"tooltip": "Seafaring line of research"},
+"eco": {"name" : "Economy",
+	"tooltip": "Economy line of research"},
+"sci": {"name": "Science",
+	"tooltip": "Science line of research"},
+"mil": {"name": "Military",
+	"tooltip": "Military line of research"},
+"pts": {"name": "Research Points",
+	"tooltip": "Research Points"},
+"tle": {"name": "Researches and Costs",
+	"tooltip": "Researches and Costs"}}

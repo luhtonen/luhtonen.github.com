@@ -1,0 +1,10 @@
+{
+	"id": "well_construction",
+	"name": "Well construction",
+	"category": "science",
+	"costs": 24,
+	"description": "",
+	"allows": "",
+	"effect": "",
+	"requirements": []
+}

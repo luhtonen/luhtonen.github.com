@@ -1,0 +1,10 @@
+{
+	"id": "ship_maintenance",
+	"name": "Ship maintenance",
+	"category": "seafaring",
+	"costs": 24,
+	"description": "",
+	"allows": "",
+	"effect": "",
+	"requirements": []
+}

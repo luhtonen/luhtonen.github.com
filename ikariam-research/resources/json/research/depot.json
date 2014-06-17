@@ -1,0 +1,10 @@
+{
+	"id": "depot",
+	"name": "Depot",
+	"category": "economy",
+	"costs": 48000,
+	"description": "",
+	"allows": "",
+	"effect": "",
+	"requirements": []
+}

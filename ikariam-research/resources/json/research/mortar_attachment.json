@@ -1,0 +1,10 @@
+{
+	"id": "mortar_attachment",
+	"name": "Mortar Attachment",
+	"category": "seafaring",
+	"costs": 93240,
+	"description": "",
+	"allows": "",
+	"effect": "",
+	"requirements": []
+}

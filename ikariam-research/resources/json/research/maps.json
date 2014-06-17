@@ -1,0 +1,10 @@
+{
+	"id": "maps",
+	"name": "Maps",
+	"category": "military",
+	"costs": 24,
+	"description": "",
+	"allows": "",
+	"effect": "",
+	"requirements": []
+}

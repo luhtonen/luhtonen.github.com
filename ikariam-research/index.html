@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <title>Ikariam Research</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width">
+        <link rel="stylesheet" type="text/css" href="resources/css/bootstrap.css"/>
+        <link rel="stylesheet" type="text/css" href="resources/css/bootstrap-theme.css"/>
+        <link rel="stylesheet" type="text/css" href="resources/css/ikariam.css"/>
+        <script type="text/javascript" src="resources/js/jquery-1.10.2.js"></script>
+        <script type="text/javascript" src="resources/js/bootstrap.js"></script>
+        <script type="text/javascript" src="resources/js/angular.js"></script>
+        <script type="text/javascript" src="resources/js/angular-animate.js"></script>
+        <script type="text/javascript" src="resources/js/angular-resource.js"></script>
+        <script type="text/javascript" src="resources/js/angular-route.js"></script>
+        <script type="text/javascript" src="resources/js/ui-bootstrap-tpls-0.10.0.js"></script>
+        <script type="text/javascript" src="resources/js/app.js"></script>
+        <script type="text/javascript" src="resources/js/controllers.js"></script>
+        <script type="text/javascript" src="resources/js/services.js"></script>
+    </head>
+    <body ng-app="ikariamApp">
+        <div ng-controller="ikariamCtrl">
+            <table id="researchListTable" class="darktable">
+                <tbody><tr>
+                        <th colspan="5"> {{researchMeta.tle.name}}
+                        </th></tr>
+                    <tr class="title3">
+                        <td class="title2"> 
+                            <span data-toggle="tooltip" title="{{researchMeta.pts.tooltip}}" data-original-title="{{researchMeta.pts.tooltip}}"><img alt="{{researchMeta.pts.name}}" src="resources/images/Research_small.gif" width="14" height="21" data-image-name="Research small.gif" data-image-key="Research_small.gif"></span>
+                        </td>
+                        <td class="sea"> 
+                            <span data-toggle="tooltip" title="{{researchMeta.sea.tooltip}}" data-original-title="{{researchMeta.sea.tooltip}}">{{researchMeta.sea.name}}</span> 
+                        </td>
+                        <td class="eco"> 
+                            <span data-toggle="tooltip" title="{{researchMeta.eco.tooltip}}" data-original-title="{{researchMeta.eco.tooltip}}">{{researchMeta.eco.name}}</span> 
+                        </td>
+                        <td class="sci"> 
+                            <span data-toggle="tooltip" title="{{researchMeta.sci.tooltip}}" data-original-title="{{researchMeta.sci.tooltip}}">{{researchMeta.sci.name}}</span> 
+                        </td>
+                        <td class="mil"> 
+                            <span data-toggle="tooltip" title="{{researchMeta.mil.tooltip}}" data-original-title="{{researchMeta.mil.tooltip}}">{{researchMeta.mil.name}}</span>
+                        </td>
+                    </tr>
+                    <tr ng-repeat="research in researches">
+                        <th> {{research.cost}}
+                        </th>
+                        <td ng-class="{sea: research.sea.length > 0}" ng-switch="research.sea.length"> 
+                            <a ng-switch-default ng-click="showDetails(research.sea[0])">{{research.sea[0].name}}</a>
+                            <small ng-switch-when="2"><a ng-click="showDetails(research.sea[0])">{{research.sea[0].name}}</a>&nbsp;(1<sup>st</sup>)</small><hr ng-switch-when="2" /><small ng-switch-when="2"><a ng-click="showDetails(research.sea[1])">{{research.sea[1].name}}</a>&nbsp;(2<sup>nd</sup>)</small>
+                            <span style="background-color:; color:gray; font:; text-decoration:none;" ng-switch-when="0">{{researchMeta.sea.name}}</span> 
+                        </td>
+                        <td ng-class="{eco: research.eco.length > 0}" ng-switch="research.eco.length"> 
+                            <a ng-switch-default ng-click="showDetails(research.eco[0])">{{research.eco[0].name}}</a>
+                            <small ng-switch-when="2"><a ng-click="showDetails(research.eco[0])">{{research.eco[0].name}}</a>&nbsp;(1<sup>st</sup>)</small><hr ng-switch-when="2" /><small ng-switch-when="2"><a ng-click="showDetails(research.eco[1])">{{research.eco[1].name}}</a>&nbsp;(2<sup>nd</sup>)</small>
+                            <span style="background-color:; color:gray; font:; text-decoration:none;" ng-switch-when="0">{{researchMeta.eco.name}}</span> 
+                        </td>
+                        <td ng-class="{sci: research.sci.length > 0}" ng-switch="research.sci.length"> 
+                            <a ng-switch-default ng-click="showDetails(research.sci[0])">{{research.sci[0].name}}</a>
+                            <small ng-switch-when="2"><a ng-click="showDetails(research.sci[0])">{{research.sci[0].name}}</a>&nbsp;(1<sup>st</sup>)</small><hr ng-switch-when="2" /><small ng-switch-when="2"><a ng-click="showDetails(research.sci[1])">{{research.sci[1].name}}</a>&nbsp;(2<sup>nd</sup>)</small>
+                            <span style="background-color:; color:gray; font:; text-decoration:none;" ng-switch-when="0">{{researchMeta.sci.name}}</span> 
+                        </td>
+                        <td ng-class="{mil: research.mil.length > 0}" ng-switch="research.mil.length"> 
+                            <a ng-switch-default ng-click="showDetails(research.mil[0])">{{research.mil[0].name}}</a>
+                            <small ng-switch-when="2"><a ng-click="showDetails(research.mil[0])">{{research.mil[0].name}}</a>&nbsp;(1<sup>st</sup>)</small><hr ng-switch-when="2" /><small ng-switch-when="2"><a ng-click="showDetails(research.mil[1])">{{research.mil[1].name}}</a>&nbsp;(2<sup>nd</sup>)</small>
+                            <span style="background-color:; color:gray; font:; text-decoration:none;" ng-switch-when="0">{{researchMeta.mil.name}}</span> 
+                        </td>
+                    </tr>
+                    <tr class="title3">
+                        <td class="title2"> 
+                            <span data-toggle="tooltip" title="{{researchMeta.pts.tooltip}}" data-original-title="{{researchMeta.pts.tooltip}}"><img alt="{{researchMeta.pts.name}}" src="resources/images/Research_small.gif" width="14" height="21" data-image-name="Research small.gif" data-image-key="Research_small.gif"></span>
+                        </td>
+                        <td class="sea" data-toggle="tooltip" > 
+                            <span data-toggle="tooltip" title="{{researchMeta.sea.tooltip}}" data-original-title="{{researchMeta.sea.tooltip}}">{{researchMeta.sea.name}}</span> 
+                        </td>
+                        <td class="eco"> 
+                            <span data-toggle="tooltip" title="{{researchMeta.eco.tooltip}}" data-original-title="{{researchMeta.eco.tooltip}}">{{researchMeta.eco.name}}</span> 
+                        </td>
+                        <td class="sci"> 
+                            <span data-toggle="tooltip" title="{{researchMeta.sci.tooltip}}" data-original-title="{{researchMeta.sci.tooltip}}">{{researchMeta.sci.name}}</span> 
+                        </td>
+                        <td class="mil"> 
+                            <span data-toggle="tooltip" title="{{researchMeta.mil.tooltip}}" data-original-title="{{researchMeta.mil.tooltip}}">{{researchMeta.mil.name}}</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th colspan="5"> {{researchMeta.tle.name}}
+                        </th>
+                    </tr>
+                </tbody>
+            </table>
+            <div id='researchPanel' class='researchPanel'>
+            <div id='researchDetailsPanel' ikariam-research-details ng-show='showDetailsPanel'>
+            </div>
+            <div id="researchPathPanel" ikariam-research-path ng-show='showDetailsPanel' class='researchDetails'></div>
+            </div>
+        </div>
+        <script type="text/javascript" src="resources/js/ikariam.js"></script>
+    </body>
+</html>

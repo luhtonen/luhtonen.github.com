@@ -1,0 +1,10 @@
+{
+	"id": "architecture",
+	"name": "Architecture",
+	"category": "economy",
+	"costs": 3672,
+	"description": "A good house can withstand the harshest elements. It can withstand them even better when a clever mind takes care of it with a lot of drawings and a little mathematics before hand, so that all the walls are straight and the roof is tight. Thanks to angles and compasses our buildings will be much more stable and well protected from the rain. An architect's office would spare us a lot of marble, just think about the savings we could make in constructing a new building!",
+	"allows": "",
+	"effect": "",
+	"requirements": []
+}

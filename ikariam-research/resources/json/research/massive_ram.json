@@ -1,0 +1,10 @@
+{
+	"id": "massive_ram",
+	"name": "Massive Ram",
+	"category": "seafaring",
+	"costs": 120000,
+	"description": "",
+	"allows": "",
+	"effect": "",
+	"requirements": []
+}
