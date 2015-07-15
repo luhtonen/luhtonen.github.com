@@ -23,3 +23,9 @@ This is a remainder for myself how to create new post with new [Octopress 3](htt
 6. Deploy post source code to GitHub project's `source` branch.
 7. Build the blog using [Jekyll](http://jekyllrb.com/)
 8. Deploy the blog with [Octopress Deploy](https://github.com/octopress/deploy) - `octopress-deploy` gem.
+
+It's also possible to test new post locally with Jekyll:
+	
+	jekyll serve
+
+Local server address is [http://127.0.0.1:4000](http://127.0.0.1:4000).
