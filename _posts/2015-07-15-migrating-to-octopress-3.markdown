@@ -82,7 +82,7 @@ and it can be tested locally with following command (it builds the project befor
 
 Open `http://127.0.0.1:4000` in the browser to test new site.
 
-### Copy all posts
+### Copy old posts
 In Octopress 3 project structure was changed. If in previous versions source of post and pages were stored in `source` directory. In new version the are stored directly in the project root directory. I was just copying all my old posts from archived project's `source/_posts` folder to new project's `_posts` folder. I had some images stored in `source/images` directory. I was just copying entire directory to my new project root directory. As well as `favicon.png` from old project `source` folder to new project root.
 
 ### Commit source to GitHub
