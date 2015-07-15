@@ -5,8 +5,8 @@
     <description></description>
     <link>http://luhtonen.github.com/</link>
     <atom:link href="http://luhtonen.github.com/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Wed, 15 Jul 2015 17:14:05 +0200</pubDate>
-    <lastBuildDate>Wed, 15 Jul 2015 17:14:05 +0200</lastBuildDate>
+    <pubDate>Wed, 15 Jul 2015 19:59:31 +0200</pubDate>
+    <lastBuildDate>Wed, 15 Jul 2015 19:59:31 +0200</lastBuildDate>
     <generator>Jekyll v2.5.3</generator>
     
       <item>
@@ -30,6 +30,134 @@ The command was also suggesting to remove &lt;code&gt;/etc/rvm&lt;/code&gt; and 
         <title>Migrating to Octopress 3</title>
         <description>&lt;p&gt;I’ve decided to resurrect my blog site and start adding some more post to it. I have new laptop and needed to setup my development environment for that and I found out that &lt;a href=&quot;http://octopress.org&quot;&gt;Octopress&lt;/a&gt; was updated to version 3. So I needed to install ruby, update gems and upgrade my old blog post to new one.&lt;/p&gt;
 
+&lt;p&gt;With multiple tries and fails and after searching on the Internet here’s the steps I should’ve taken right from the beginning.&lt;/p&gt;
+
+&lt;h2 id=&quot;remove-old-rmv&quot;&gt;Remove old RMV&lt;/h2&gt;
+&lt;p&gt;On Mac that was easy only this command:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;rvm implode
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;This command was removing directories and executable.&lt;/p&gt;
+
+&lt;h2 id=&quot;install-homebrew&quot;&gt;Install Homebrew&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&quot;http://brew.sh/&quot;&gt;Homebrew&lt;/a&gt; is a package manager for Mac OS X. With it lots of useful tools can be installed, updated or removed on Mac. Homebrew installs packages into &lt;code&gt;/usr/local/&lt;/code&gt; directory. This way it does not interfere with system tools, like gcc etc, and it’s always easy to remove everything by just deleting installation directory without breaking anything in the system. Installation is easy too.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;ruby -e &quot;$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)&quot;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;This will install &lt;code&gt;brew&lt;/code&gt; executable.&lt;/p&gt;
+
+&lt;h2 id=&quot;install-ruby&quot;&gt;Install Ruby&lt;/h2&gt;
+&lt;p&gt;Funny enough that to install Homebrew ruby was required, but luckily ruby is available by default on Mac OS X. But I wanted to newer version and I also wanted to be able to control which version will I use.&lt;/p&gt;
+
+&lt;p&gt;First I’ve installed &lt;code&gt;rbenv&lt;/code&gt; - the tool to handle ruby environments.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;gem install rbenv ruby-build
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;code&gt;ruby-build&lt;/code&gt; is a good companion for &lt;code&gt;rbenv&lt;/code&gt;. It provides &lt;code&gt;rbenv install&lt;/code&gt; command to compile and install different versions of Ruby.&lt;/p&gt;
+
+&lt;p&gt;I needed to add one line to my &lt;code&gt;.bash_profile&lt;/code&gt; file:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;echo &#39;if which rbenv &amp;gt; /dev/null; then eval &quot;$(rbenv init -)&quot;; fi&#39; &amp;gt;&amp;gt; ~/.bash_profile
+source ~/.bash_profile
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Now it’s time to install and take in use the Ruby.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;rbenv install 2.2.2
+rbenv global 2.2.2
+ruby -v
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;This will install given ruby version and set it as active version on the system. Last line prints out the active ruby version, to ensure that installation went fine.&lt;/p&gt;
+
+&lt;h2 id=&quot;installing-new-octropress-gems&quot;&gt;Installing new Octropress gems&lt;/h2&gt;
+&lt;p&gt;Now I needed to install Octopress gems to able to use it.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;gem install octopress octopress-deploy octopress-ink
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;This command will install all dependencies including &lt;a href=&quot;http://jekyllrb.com/&quot;&gt;Jekyll&lt;/a&gt;. On top of main &lt;code&gt;octopress&lt;/code&gt; gem, I’ve install also &lt;code&gt;octopress-deploy&lt;/code&gt;, which provides &lt;code&gt;deploy&lt;/code&gt; command and &lt;code&gt;octopress-ink&lt;/code&gt; which should help build themes and plugins.&lt;/p&gt;
+
+&lt;h2 id=&quot;migrating-old-octopress-to-version-3&quot;&gt;Migrating old Octopress to version 3&lt;/h2&gt;
+&lt;p&gt;I didn’t found any tools which would help in this process, so I did it manually. I’m keeping my blogs source code on &lt;a href=&quot;https://gitub.com&quot;&gt;GitHub&lt;/a&gt; and hosting it on &lt;a href=&quot;https://pages.github.com/&quot;&gt;GitHub Pages&lt;/a&gt;. GitHub Pages sites are stored in &lt;code&gt;NAME.gitbub.com&lt;/code&gt;, where &lt;code&gt;NAME&lt;/code&gt; is either user name or site name. Here’s instruction how I’ve migrated my old blog.&lt;/p&gt;
+
+&lt;h3 id=&quot;check-out-the-blog-source&quot;&gt;Check out the blog source&lt;/h3&gt;
+&lt;p&gt;I’ve checked out my site from Github. I’m using &lt;a href=&quot;https://mac.github.com/&quot;&gt;GibHub Mac&lt;/a&gt; tool, so I’ve used the link on my repo site (there is equivalent tool for Windows). Blog source code is stored in &lt;code&gt;source&lt;/code&gt; branch and in &lt;code&gt;master&lt;/code&gt; branch is stored compiled blog, which is then published by GitHub Pages. So during check out need to select correct branch, which is &lt;code&gt;source&lt;/code&gt;.&lt;/p&gt;
+
+&lt;h3 id=&quot;backup-old-blog&quot;&gt;Backup old blog&lt;/h3&gt;
+&lt;p&gt;I’ve made a copy of my entire directory&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;cp -r NAME.github.com archive-NAME.github.com
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&quot;clean-the-source-directory&quot;&gt;Clean the source directory&lt;/h3&gt;
+&lt;p&gt;I’ve decided to use Octopress &lt;code&gt;init site&lt;/code&gt; command to initialise my blog, so I’ve removed from source directory &lt;code&gt;NAME.github.com&lt;/code&gt; all files and directories except &lt;code&gt;.git&lt;/code&gt; and &lt;code&gt;.gitignore&lt;/code&gt;.&lt;/p&gt;
+
+&lt;h3 id=&quot;initialise-the-blog-site&quot;&gt;Initialise the blog site&lt;/h3&gt;
+&lt;p&gt;Now I was initialising my blog, by executing following command (it needs to be executed in the directory were &lt;code&gt;NAME.github.com&lt;/code&gt; project is located):&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;octopress new NAME.github.com
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;This will create initial structure of Octopress blog. Then I changed to project (&lt;code&gt;NAME.github.com&lt;/code&gt;) directory and executed all other commands there.&lt;/p&gt;
+
+&lt;p&gt;Now new project need to be compile with following command:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;jekyll build
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;and it can be tested locally with following command (it builds the project before):&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;jekyll serve
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Open &lt;code&gt;http://127.0.0.1:4000&lt;/code&gt; in the browser to test new site.&lt;/p&gt;
+
+&lt;h3 id=&quot;copy-all-posts&quot;&gt;Copy all posts&lt;/h3&gt;
+&lt;p&gt;In Octopress 3 project structure was changed. If in previous versions source of post and pages were stored in &lt;code&gt;source&lt;/code&gt; directory. In new version the are stored directly in the project root directory. I was just copying all my old posts from archived project’s &lt;code&gt;source/_posts&lt;/code&gt; folder to new project’s &lt;code&gt;_posts&lt;/code&gt; folder. I had some images stored in &lt;code&gt;source/images&lt;/code&gt; directory. I was just copying entire directory to my new project root directory. As well as &lt;code&gt;favicon.png&lt;/code&gt; from old project &lt;code&gt;source&lt;/code&gt; folder to new project root.&lt;/p&gt;
+
+&lt;h3 id=&quot;commit-source-to-github&quot;&gt;Commit source to GitHub&lt;/h3&gt;
+&lt;p&gt;Since I’ve kept &lt;code&gt;.git&lt;/code&gt; directory, I preserved my GitHub settings for this project and don’t need to initialise git repository. I only needed to add new files, commit changes and push new version to GitHub. But before I need to make sure that I commit code to &lt;code&gt;source&lt;/code&gt; branch.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;git branch -m source
+git add .
+git commit -m &#39;Migrating to Octopress 3&#39;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&quot;push-source-to-github&quot;&gt;Push source to GitHub&lt;/h3&gt;
+&lt;p&gt;As I’ve mentioned before I preserved my GitHub configuration, so didn’t needed to setup remote location, but was able to push my changes to GitHub with the following command:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;git push origin source
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;That was pushing my local changes to GitHub into project’s &lt;code&gt;source&lt;/code&gt; branch.&lt;/p&gt;
+
+&lt;h3 id=&quot;deploying-the-site-to-github-pages&quot;&gt;Deploying the site to GitHub Pages&lt;/h3&gt;
+&lt;p&gt;To be able to publish my blog on GitHub Pages I needed to create deployment configurations. This is where &lt;code&gt;octopress-deploy&lt;/code&gt; come to play.&lt;/p&gt;
+
+&lt;p&gt;I did this step wrong first time. I was just using instructions, what I’ve found on the Internet. But they are good for new blogs, but for my case they weren’t. For me initialisation was going fine, but deployment was failing with &lt;code&gt;Access denied&lt;/code&gt; error. The reason was wrongly configured GitHub URL. Solved it by using URL, which I found from my &lt;code&gt;.git/config&lt;/code&gt; file in my project directory in the section &lt;code&gt;[remote &quot;origin&quot;]&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;So I should’ve done deployment initialisation with following command:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;octopress deploy init git https://github.com/NAME/NAME.github.com.git
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;After that I needed to add &lt;code&gt;_deploy.yml&lt;/code&gt; to my &lt;code&gt;.gitignore&lt;/code&gt; file.&lt;/p&gt;
+
+&lt;p&gt;Then actually deployment is easy:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;octopress deploy
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Just need to remember to build the site after changes with but before deployment:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;jekyll build
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;That concluded my trip in migrating my Octopress blog to new version.&lt;/p&gt;
 </description>
         <pubDate>Wed, 15 Jul 2015 16:49:51 +0200</pubDate>
         <link>http://luhtonen.github.com/2015/07/15/migrating-to-octopress-3.html</link>

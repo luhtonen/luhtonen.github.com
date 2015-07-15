@@ -64,6 +64,134 @@
   <article class="post-content">
     <p>I’ve decided to resurrect my blog site and start adding some more post to it. I have new laptop and needed to setup my development environment for that and I found out that <a href="http://octopress.org">Octopress</a> was updated to version 3. So I needed to install ruby, update gems and upgrade my old blog post to new one.</p>
 
+<p>With multiple tries and fails and after searching on the Internet here’s the steps I should’ve taken right from the beginning.</p>
+
+<h2 id="remove-old-rmv">Remove old RMV</h2>
+<p>On Mac that was easy only this command:</p>
+
+<pre><code>rvm implode
+</code></pre>
+
+<p>This command was removing directories and executable.</p>
+
+<h2 id="install-homebrew">Install Homebrew</h2>
+<p><a href="http://brew.sh/">Homebrew</a> is a package manager for Mac OS X. With it lots of useful tools can be installed, updated or removed on Mac. Homebrew installs packages into <code>/usr/local/</code> directory. This way it does not interfere with system tools, like gcc etc, and it’s always easy to remove everything by just deleting installation directory without breaking anything in the system. Installation is easy too.</p>
+
+<pre><code>ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+</code></pre>
+
+<p>This will install <code>brew</code> executable.</p>
+
+<h2 id="install-ruby">Install Ruby</h2>
+<p>Funny enough that to install Homebrew ruby was required, but luckily ruby is available by default on Mac OS X. But I wanted to newer version and I also wanted to be able to control which version will I use.</p>
+
+<p>First I’ve installed <code>rbenv</code> - the tool to handle ruby environments.</p>
+
+<pre><code>gem install rbenv ruby-build
+</code></pre>
+
+<p><code>ruby-build</code> is a good companion for <code>rbenv</code>. It provides <code>rbenv install</code> command to compile and install different versions of Ruby.</p>
+
+<p>I needed to add one line to my <code>.bash_profile</code> file:</p>
+
+<pre><code>echo 'if which rbenv &gt; /dev/null; then eval "$(rbenv init -)"; fi' &gt;&gt; ~/.bash_profile
+source ~/.bash_profile
+</code></pre>
+
+<p>Now it’s time to install and take in use the Ruby.</p>
+
+<pre><code>rbenv install 2.2.2
+rbenv global 2.2.2
+ruby -v
+</code></pre>
+
+<p>This will install given ruby version and set it as active version on the system. Last line prints out the active ruby version, to ensure that installation went fine.</p>
+
+<h2 id="installing-new-octropress-gems">Installing new Octropress gems</h2>
+<p>Now I needed to install Octopress gems to able to use it.</p>
+
+<pre><code>gem install octopress octopress-deploy octopress-ink
+</code></pre>
+
+<p>This command will install all dependencies including <a href="http://jekyllrb.com/">Jekyll</a>. On top of main <code>octopress</code> gem, I’ve install also <code>octopress-deploy</code>, which provides <code>deploy</code> command and <code>octopress-ink</code> which should help build themes and plugins.</p>
+
+<h2 id="migrating-old-octopress-to-version-3">Migrating old Octopress to version 3</h2>
+<p>I didn’t found any tools which would help in this process, so I did it manually. I’m keeping my blogs source code on <a href="https://gitub.com">GitHub</a> and hosting it on <a href="https://pages.github.com/">GitHub Pages</a>. GitHub Pages sites are stored in <code>NAME.gitbub.com</code>, where <code>NAME</code> is either user name or site name. Here’s instruction how I’ve migrated my old blog.</p>
+
+<h3 id="check-out-the-blog-source">Check out the blog source</h3>
+<p>I’ve checked out my site from Github. I’m using <a href="https://mac.github.com/">GibHub Mac</a> tool, so I’ve used the link on my repo site (there is equivalent tool for Windows). Blog source code is stored in <code>source</code> branch and in <code>master</code> branch is stored compiled blog, which is then published by GitHub Pages. So during check out need to select correct branch, which is <code>source</code>.</p>
+
+<h3 id="backup-old-blog">Backup old blog</h3>
+<p>I’ve made a copy of my entire directory</p>
+
+<pre><code>cp -r NAME.github.com archive-NAME.github.com
+</code></pre>
+
+<h3 id="clean-the-source-directory">Clean the source directory</h3>
+<p>I’ve decided to use Octopress <code>init site</code> command to initialise my blog, so I’ve removed from source directory <code>NAME.github.com</code> all files and directories except <code>.git</code> and <code>.gitignore</code>.</p>
+
+<h3 id="initialise-the-blog-site">Initialise the blog site</h3>
+<p>Now I was initialising my blog, by executing following command (it needs to be executed in the directory were <code>NAME.github.com</code> project is located):</p>
+
+<pre><code>octopress new NAME.github.com
+</code></pre>
+
+<p>This will create initial structure of Octopress blog. Then I changed to project (<code>NAME.github.com</code>) directory and executed all other commands there.</p>
+
+<p>Now new project need to be compile with following command:</p>
+
+<pre><code>jekyll build
+</code></pre>
+
+<p>and it can be tested locally with following command (it builds the project before):</p>
+
+<pre><code>jekyll serve
+</code></pre>
+
+<p>Open <code>http://127.0.0.1:4000</code> in the browser to test new site.</p>
+
+<h3 id="copy-all-posts">Copy all posts</h3>
+<p>In Octopress 3 project structure was changed. If in previous versions source of post and pages were stored in <code>source</code> directory. In new version the are stored directly in the project root directory. I was just copying all my old posts from archived project’s <code>source/_posts</code> folder to new project’s <code>_posts</code> folder. I had some images stored in <code>source/images</code> directory. I was just copying entire directory to my new project root directory. As well as <code>favicon.png</code> from old project <code>source</code> folder to new project root.</p>
+
+<h3 id="commit-source-to-github">Commit source to GitHub</h3>
+<p>Since I’ve kept <code>.git</code> directory, I preserved my GitHub settings for this project and don’t need to initialise git repository. I only needed to add new files, commit changes and push new version to GitHub. But before I need to make sure that I commit code to <code>source</code> branch.</p>
+
+<pre><code>git branch -m source
+git add .
+git commit -m 'Migrating to Octopress 3'
+</code></pre>
+
+<h3 id="push-source-to-github">Push source to GitHub</h3>
+<p>As I’ve mentioned before I preserved my GitHub configuration, so didn’t needed to setup remote location, but was able to push my changes to GitHub with the following command:</p>
+
+<pre><code>git push origin source
+</code></pre>
+
+<p>That was pushing my local changes to GitHub into project’s <code>source</code> branch.</p>
+
+<h3 id="deploying-the-site-to-github-pages">Deploying the site to GitHub Pages</h3>
+<p>To be able to publish my blog on GitHub Pages I needed to create deployment configurations. This is where <code>octopress-deploy</code> come to play.</p>
+
+<p>I did this step wrong first time. I was just using instructions, what I’ve found on the Internet. But they are good for new blogs, but for my case they weren’t. For me initialisation was going fine, but deployment was failing with <code>Access denied</code> error. The reason was wrongly configured GitHub URL. Solved it by using URL, which I found from my <code>.git/config</code> file in my project directory in the section <code>[remote "origin"]</code>.</p>
+
+<p>So I should’ve done deployment initialisation with following command:</p>
+
+<pre><code>octopress deploy init git https://github.com/NAME/NAME.github.com.git
+</code></pre>
+
+<p>After that I needed to add <code>_deploy.yml</code> to my <code>.gitignore</code> file.</p>
+
+<p>Then actually deployment is easy:</p>
+
+<pre><code>octopress deploy
+</code></pre>
+
+<p>Just need to remember to build the site after changes with but before deployment:</p>
+
+<pre><code>jekyll build
+</code></pre>
+
+<p>That concluded my trip in migrating my Octopress blog to new version.</p>
 
   </article>
 
