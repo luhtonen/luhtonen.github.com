@@ -6,11 +6,11 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <title>Eduard Luhtonen</title>
-  <meta name="description" content="">
+  <title>Creating New Post in Octopress 3</title>
+  <meta name="description" content="This is a remainder for myself how to create new post with new Octopress 3.">
 
   <link rel="stylesheet" href="/css/main.css">
-  <link rel="canonical" href="http://luhtonen.github.com/">
+  <link rel="canonical" href="http://luhtonen.github.com/2015/07/15/creating-new-post-in-octopress-3.html">
   <link rel="alternate" type="application/rss+xml" title="Eduard Luhtonen" href="http://luhtonen.github.com/feed.xml" />
 </head>
 
@@ -54,95 +54,45 @@
 
     <div class="page-content">
       <div class="wrapper">
-        <div class="home">
+        <div class="post">
 
-  <h1 class="page-heading">Posts</h1>
+  <header class="post-header">
+    <h1 class="post-title">Creating New Post in Octopress 3</h1>
+    <p class="post-meta">Jul 15, 2015</p>
+  </header>
 
-  <ul class="post-list">
-    
-      <li>
-        <span class="post-meta">Jul 15, 2015</span>
+  <article class="post-content">
+    <p>This is a remainder for myself how to create new post with new <a href="http://octopress.org/">Octopress 3</a>.</p>
 
-        <h2>
-          <a class="post-link" href="/2015/07/15/creating-new-post-in-octopress-3.html">Creating New Post in Octopress 3</a>
-        </h2>
-      </li>
-    
-      <li>
-        <span class="post-meta">Jul 15, 2015</span>
+<pre><code>octopress new post "post title"
+open _posts/&lt;timestamp&gt;-post-title.markdown
+(edit post)
+git add .
+git commit -m "adding new post"
+git push origin source
+jekyll build
+octopress deploy
+</code></pre>
 
-        <h2>
-          <a class="post-link" href="/2015/07/15/how-to-remove-rvm-from-mac.html">How to Remove RVM From Mac</a>
-        </h2>
-      </li>
-    
-      <li>
-        <span class="post-meta">Jul 15, 2015</span>
+<ol>
+  <li>Create new post stub with given title <code>post title</code>. Octopress creates new <a href="http://daringfireball.net/projects/markdown/">Markdown</a> file.</li>
+  <li>Open new post for edit. On my Mac <code>.markdown</code> files are assosiated with <a href="http://macdown.uranusjr.com/">MacDown</a> - Open source Markdown editor for OS X.</li>
+  <li>Edit the post and save the changes.</li>
+  <li>Add new file to git.</li>
+  <li>Commit changes to git.</li>
+  <li>Deploy post source code to GitHub project’s <code>source</code> branch.</li>
+  <li>Build the blog using <a href="http://jekyllrb.com/">Jekyll</a></li>
+  <li>Deploy the blog with <a href="https://github.com/octopress/deploy">Octopress Deploy</a> - <code>octopress-deploy</code> gem.</li>
+</ol>
 
-        <h2>
-          <a class="post-link" href="/2015/07/15/migrating-to-octopress-3.html">Migrating to Octopress 3</a>
-        </h2>
-      </li>
-    
-      <li>
-        <span class="post-meta">Jul 15, 2015</span>
+<p>It’s also possible to test new post locally with Jekyll:</p>
 
-        <h2>
-          <a class="post-link" href="/jekyll/update/2015/07/15/welcome-to-jekyll.html">Welcome to Jekyll!</a>
-        </h2>
-      </li>
-    
-      <li>
-        <span class="post-meta">Mar 20, 2013</span>
+<pre><code>jekyll serve
+</code></pre>
 
-        <h2>
-          <a class="post-link" href="/aix/unix/2013/03/20/how-to-check-memory-usage-on-aix.html">How to check memory usage on AIX</a>
-        </h2>
-      </li>
-    
-      <li>
-        <span class="post-meta">Mar 14, 2013</span>
+<p>Local server address is <a href="http://127.0.0.1:4000">http://127.0.0.1:4000</a>.</p>
 
-        <h2>
-          <a class="post-link" href="/java/ssl/certification/security/unix/aix/2013/03/14/how-make-java-to-trust-self-signed-certificate.html">How make Java to trust self signed certificate</a>
-        </h2>
-      </li>
-    
-      <li>
-        <span class="post-meta">Mar 14, 2013</span>
-
-        <h2>
-          <a class="post-link" href="/octopress/blog/github/windows/2013/03/14/how-to-contribute-to-existing-octopress-blog-from-other-computer.html">How to contribute to existing Octopress blog from other computer (Windows)</a>
-        </h2>
-      </li>
-    
-      <li>
-        <span class="post-meta">Jan 22, 2013</span>
-
-        <h2>
-          <a class="post-link" href="/aix/unix/2013/01/22/how-to-check-aix-version-and-other-useful-information.html">How to check AIX version and other useful information</a>
-        </h2>
-      </li>
-    
-      <li>
-        <span class="post-meta">Jan 9, 2013</span>
-
-        <h2>
-          <a class="post-link" href="/gwt/google%20web%20toolkit/eclipse/java/2013/01/09/create-simple-gwt-project-with-eclipse.html">Create simple GWT project with Eclipse</a>
-        </h2>
-      </li>
-    
-      <li>
-        <span class="post-meta">Jan 9, 2013</span>
-
-        <h2>
-          <a class="post-link" href="/blogging/octopress/github/2013/01/09/blogging-with-octopress-on-github.html">Blogging with Octopress on GitHub</a>
-        </h2>
-      </li>
-    
-  </ul>
-
-  <p class="rss-subscribe">subscribe <a href="/feed.xml">via RSS</a></p>
+  </article>
 
 </div>
 
