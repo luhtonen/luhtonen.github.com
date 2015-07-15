@@ -1,0 +1,468 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Eduard Luhtonen</title>
+    <description></description>
+    <link>http://luhtonen.github.com/</link>
+    <atom:link href="http://luhtonen.github.com/feed.xml" rel="self" type="application/rss+xml"/>
+    <pubDate>Wed, 15 Jul 2015 14:56:16 +0200</pubDate>
+    <lastBuildDate>Wed, 15 Jul 2015 14:56:16 +0200</lastBuildDate>
+    <generator>Jekyll v2.5.3</generator>
+    
+      <item>
+        <title>Welcome to Jekyll!</title>
+        <description>&lt;p&gt;You’ll find this post in your &lt;code&gt;_posts&lt;/code&gt; directory. Go ahead and edit it and re-build the site to see your changes. You can rebuild the site in many different ways, but the most common way is to run &lt;code&gt;jekyll serve&lt;/code&gt;, which launches a web server and auto-regenerates your site when a file is updated.&lt;/p&gt;
+
+&lt;p&gt;To add new posts, simply add a file in the &lt;code&gt;_posts&lt;/code&gt; directory that follows the convention &lt;code&gt;YYYY-MM-DD-name-of-post.ext&lt;/code&gt; and includes the necessary front matter. Take a look at the source for this post to get an idea about how it works.&lt;/p&gt;
+
+&lt;p&gt;Jekyll also offers powerful support for code snippets:&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;print_hi&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+  &lt;span class=&quot;nb&quot;&gt;puts&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&amp;quot;Hi, &lt;/span&gt;&lt;span class=&quot;si&quot;&gt;#{&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;si&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&amp;quot;&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;print_hi&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;Tom&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;#=&amp;gt; prints &amp;#39;Hi, Tom&amp;#39; to STDOUT.&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;Check out the &lt;a href=&quot;http://jekyllrb.com&quot;&gt;Jekyll docs&lt;/a&gt; for more info on how to get the most out of Jekyll. File all bugs/feature requests at &lt;a href=&quot;https://github.com/jekyll/jekyll&quot;&gt;Jekyll’s GitHub repo&lt;/a&gt;. If you have questions, you can ask them on &lt;a href=&quot;https://github.com/jekyll/jekyll-help&quot;&gt;Jekyll’s dedicated Help repository&lt;/a&gt;.&lt;/p&gt;
+
+</description>
+        <pubDate>Wed, 15 Jul 2015 16:35:15 +0200</pubDate>
+        <link>http://luhtonen.github.com/jekyll/update/2015/07/15/welcome-to-jekyll.html</link>
+        <guid isPermaLink="true">http://luhtonen.github.com/jekyll/update/2015/07/15/welcome-to-jekyll.html</guid>
+        
+        
+        <category>jekyll</category>
+        
+        <category>update</category>
+        
+      </item>
+    
+      <item>
+        <title>How to check memory usage on AIX</title>
+        <description>&lt;p&gt;AIX suppose to be Unix system, but there is lots of things are done very differently from other Unix systems. I needed to check memory usage on AIX machine, but didn’t found well-known command &lt;code&gt;free&lt;/code&gt;. After quick research on Web I found AIX own command: &lt;code&gt;svmon&lt;/code&gt;. To get global information about memory usage only required option is &lt;code&gt;-G&lt;/code&gt;.&lt;/p&gt;
+&lt;pre&gt;
+&amp;gt; svmon -G
+               size       inuse        free         pin     virtual   mmode
+memory      1003520     1000352        3168      466861     1468212     Ded
+pg space    2097152      829774
+
+               work        pers        clnt       other
+pin          435310           0           0       31551
+in use       901152           0       99200
+
+PageSize   PoolSize       inuse        pgsp         pin     virtual
+s    4 KB         -      276720      252814       67101      409300
+m   64 KB         -       45227       36060       24985       66182
+&lt;/pre&gt;
+
+&lt;h4 id=&quot;list-installed-software-on-aix&quot;&gt;List installed software on AIX&lt;/h4&gt;
+&lt;p&gt;&lt;code&gt;lslpp&lt;/code&gt; is the tool to list installed softwares on AIX. 2 switchs are more useful:&lt;/p&gt;
+&lt;pre&gt;
+-h
+        Displays the installation and update history information for the 
+        specified fileset. You cannot use this flag with the -J flag.
+
+-L
+        Displays the name, most recent level, state, and a description of 
+        the specified fileset. The build date, which is specified by the 
+        year and the week in the form of yyww (for example, 0852), is also 
+        displayed for a fileset, if it has one. Part information (usr, 
+        root, and share) is consolidated into the same listing. For 
+        formatted filesets, it displays the most recent maintenance or 
+        technology level for the specified filesets. In addition, this 
+        flag lists any subsystem selective fixes that were installed on 
+        top of the maintenance or technology level. RPM and ISMP images 
+        are also listed.
+&lt;/pre&gt;
+
+&lt;p&gt;Sample from &lt;code&gt;lslpp -h all&lt;/code&gt; (not a full listing)&lt;/p&gt;
+&lt;pre&gt;
+ &amp;gt; lslpp -h all
+  Fileset         Level     Action       Status       Date         Time
+  ----------------------------------------------------------------------------
+Path: /usr/lib/objrepos
+  Firefox.base.adt
+                 3.5.13.1   COMMIT       COMPLETE     12/05/12     12:15:19
+
+  Firefox.base.rte
+                 3.5.13.1   COMMIT       COMPLETE     12/05/12     12:15:19
+
+  GSKit8.gskcrypt32.ppc.rte
+                 8.0.14.6   COMMIT       COMPLETE     03/26/12     09:51:05
+
+  GSKit8.gskcrypt64.ppc.rte
+                8.0.14.14   COMMIT       COMPLETE     01/03/13     12:10:33
+
+  GSKit8.gskssl32.ppc.rte
+                 8.0.14.6   COMMIT       COMPLETE     03/26/12     09:51:13
+
+  GSKit8.gskssl64.ppc.rte
+                8.0.14.14   COMMIT       COMPLETE     01/03/13     12:10:35
+...
+&lt;/pre&gt;
+
+&lt;p&gt;Sample from &lt;code&gt;lslpp -L all&lt;/code&gt; (not a full listing)&lt;/p&gt;
+&lt;pre&gt;
+&amp;gt; lslpp -L all
+  Fileset                      Level  State  Type  Description (Uninstaller)
+  ----------------------------------------------------------------------------
+  Firefox.base.adt          3.5.13.1    C     F    Firefox Development Tools
+  Firefox.base.rte          3.5.13.1    C     F    Firefox Web Browser
+  GSKit8.gskcrypt32.ppc.rte
+                            8.0.14.6    C     F    IBM GSKit Cryptography Runtime
+  GSKit8.gskcrypt64.ppc.rte
+                           8.0.14.14    C     F    IBM GSKit Cryptography Runtime
+  GSKit8.gskssl32.ppc.rte   8.0.14.6    C     F    IBM GSKit SSL Runtime With
+                                                   Acme Toolkit
+  GSKit8.gskssl64.ppc.rte  8.0.14.14    C     F    IBM GSKit SSL Runtime With
+                                                   Acme Toolkit
+...
+
+State codes:
+ A -- Applied.
+ B -- Broken.
+ C -- Committed.
+ E -- EFIX Locked.
+ O -- Obsolete.  (partially migrated to newer version)
+ ? -- Inconsistent State...Run lppchk -v.
+
+Type codes:
+ F -- Installp Fileset
+ P -- Product
+ C -- Component
+ T -- Feature
+ R -- RPM Package
+E -- Interim Fix
+&lt;/pre&gt;
+</description>
+        <pubDate>Wed, 20 Mar 2013 11:31:00 +0100</pubDate>
+        <link>http://luhtonen.github.com/aix/unix/2013/03/20/how-to-check-memory-usage-on-aix.html</link>
+        <guid isPermaLink="true">http://luhtonen.github.com/aix/unix/2013/03/20/how-to-check-memory-usage-on-aix.html</guid>
+        
+        
+        <category>aix</category>
+        
+        <category>unix</category>
+        
+      </item>
+    
+      <item>
+        <title>How make Java to trust self signed certificate</title>
+        <description>&lt;p&gt;We’ve been doing update to our customers systems and one of the part what was update Java to new version. With the update we’ve lost our &lt;em&gt;cacerts&lt;/em&gt; file. In result Java stopped to trust our self signed certificate: &lt;code&gt;The certificate issued by &amp;lt;..&amp;gt; is not trusted;&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;To resolve this issue, we needed to add self signed certifate to Java’s trusted certificate list.&lt;/p&gt;
+
+&lt;pre&gt;
+&amp;gt; sudo su -
+&amp;gt; cd &lt;i&gt;install_directory&lt;/i&gt;
+&amp;gt; mkdir certs
+&amp;gt; openssl s_client -connect &lt;i&gt;remote_host&lt;/i&gt;:&lt;i&gt;remote_port&lt;/i&gt; 2&amp;gt;&amp;amp;1 | sed -ne &#39;/-BEGIN CERTIFICATE-/,/-END CERTIFICATE-/p&#39; &amp;gt; certs/certfile.txt
+&amp;gt; cp java/jre/lib/security/cacerts java/jre/lib/security/cacerts-`date -u +&quot;%Y%m%d&quot;`
+&amp;gt; java/jre/bin/keytool -import -noprompt -trustcacerts -alias &quot;mycert&quot; -file certs/certfile.txt -keystore java/jre/lib/security/cacerts -storepass changeit
+&lt;/pre&gt;
+
+&lt;h4 id=&quot;explanations&quot;&gt;Explanations&lt;/h4&gt;
+&lt;ol&gt;
+  &lt;li&gt;Since we have our tool installed as &lt;em&gt;root&lt;/em&gt;, we need to &lt;em&gt;sudo&lt;/em&gt; as &lt;em&gt;root&lt;/em&gt;&lt;/li&gt;
+  &lt;li&gt;Change to tool installation directory, replace &lt;em&gt;install_directory&lt;/em&gt; with correct value. Java was installed under it in &lt;em&gt;java&lt;/em&gt; subdirectory.&lt;/li&gt;
+  &lt;li&gt;Create directory to store certificate to be downloaded from  remote host&lt;/li&gt;
+  &lt;li&gt;Download certificate from remote host and store it in &lt;em&gt;certs&lt;/em&gt; directory in &lt;em&gt;certfile.txt&lt;/em&gt; file. &lt;em&gt;remote_host&lt;/em&gt; need to be replaced with correct host name or ip addres and &lt;em&gt;remote_port&lt;/em&gt; need to be replaced with correct port.&lt;/li&gt;
+  &lt;li&gt;Make backup of &lt;em&gt;cacerts&lt;/em&gt; file&lt;/li&gt;
+  &lt;li&gt;Add self signed certificate to &lt;em&gt;cacerts&lt;/em&gt; file. Here’s some important options:&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;&lt;em&gt;-noprompt&lt;/em&gt; - suppress interactive prompting&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;-trustcerts&lt;/em&gt; - set certificate trust attribute to yes and don’t ask from user&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;-alias “alias_name”&lt;/em&gt; - is alias used by keytool to find certificate from the list, if alias is already in the list certificate value is replace, otherwise new certificate is added to the &lt;em&gt;cacerts&lt;/em&gt; file&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;-storepass pass&lt;/em&gt; - password for key store, &lt;em&gt;changeit&lt;/em&gt; is default&lt;/p&gt;
+</description>
+        <pubDate>Thu, 14 Mar 2013 15:24:00 +0100</pubDate>
+        <link>http://luhtonen.github.com/java/ssl/certification/security/unix/aix/2013/03/14/how-make-java-to-trust-self-signed-certificate.html</link>
+        <guid isPermaLink="true">http://luhtonen.github.com/java/ssl/certification/security/unix/aix/2013/03/14/how-make-java-to-trust-self-signed-certificate.html</guid>
+        
+        
+        <category>java</category>
+        
+        <category>ssl</category>
+        
+        <category>certification</category>
+        
+        <category>security</category>
+        
+        <category>unix</category>
+        
+        <category>aix</category>
+        
+      </item>
+    
+      <item>
+        <title>How to contribute to existing Octopress blog from other computer (Windows)</title>
+        <description>&lt;p&gt;I’ve created my blog from my home Mac, but sometimes I wanted to add some brief posts from the work Windows computer, when thing I wanted to add is still fresh in my memory. I was wondering how can I do it? I found helpful article from &lt;a href=&quot;http://code.dblock.org/octopress-setting-up-a-blog-and-contributing-to-an-existing-one&quot;&gt;dBlog.org&lt;/a&gt;. Last part was particularly helpful, but those instructions are for Linux/Unix/Mac users and didn’t worked for me right away, but I have to do some extra steps.&lt;/p&gt;
+
+&lt;h2 id=&quot;install-ruby-for-windows&quot;&gt;Install Ruby for Windows&lt;/h2&gt;
+&lt;p&gt;First need to install ruby. I’ve used &lt;a href=&quot;http://rubyinstaller.org/&quot;&gt;RubyInstaller for Windows&lt;/a&gt; to install latest version. This is pretty streight forward and shouldn’t cause any problems.&lt;/p&gt;
+
+&lt;h2 id=&quot;install-github-for-windows&quot;&gt;Install GitHub for Windows&lt;/h2&gt;
+&lt;p&gt;It is possible to install just git, but I’ve encountered some problems with connection to GitHub: &lt;code&gt;Permission denied (publickey)&lt;/code&gt;. Of cause it possible to generate this key using openssh and add it to your GitHub account’s key list. But I dicided to use native &lt;a href=&quot;http://windows.github.com/&quot;&gt;GitHub for Windows&lt;/a&gt;, which handled all this issues for me automatically.&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;Download and install GitHub for Windows&lt;/li&gt;
+  &lt;li&gt;Start GitHub and login using your GitHub account&lt;/li&gt;
+  &lt;li&gt;Set your username and email: select &lt;em&gt;tools&lt;/em&gt; &amp;gt; &lt;em&gt;options…&lt;/em&gt;, under ‘&lt;em&gt;git configuration&lt;/em&gt;’ check that your &lt;em&gt;username&lt;/em&gt; and &lt;em&gt;email&lt;/em&gt; are correct&lt;/li&gt;
+  &lt;li&gt;Define where your projects will be cloned, select &lt;em&gt;tools&lt;/em&gt; &amp;gt; &lt;em&gt;options…&lt;/em&gt; and change ‘&lt;em&gt;default storage directory&lt;/em&gt;’ to one you prefer. I’ve used default, so for me it is optional step&lt;/li&gt;
+  &lt;li&gt;Define what shell you’ll prefer to use: select &lt;em&gt;tools&lt;/em&gt; &amp;gt; &lt;em&gt;options…&lt;/em&gt; and select one you prefer from ‘&lt;em&gt;default shell&lt;/em&gt;’ list. I’ve tried &lt;em&gt;PowerShell&lt;/em&gt; first, but there was some problems with it, so I switched to &lt;em&gt;Git Bash&lt;/em&gt;.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h2 id=&quot;clone-your-blog-from-github&quot;&gt;Clone your blog from GitHub&lt;/h2&gt;
+&lt;p&gt;I’ve started cloning from GitHub Windows app and then switched to shell.&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;From left panel in GitHub app select your account under &lt;em&gt;github&lt;/em&gt; section&lt;/li&gt;
+  &lt;li&gt;Select your blog repository and click &lt;em&gt;clone&lt;/em&gt;&lt;/li&gt;
+  &lt;li&gt;When clone is complete select &lt;em&gt;open this repo&lt;/em&gt;&lt;/li&gt;
+  &lt;li&gt;Start shell by selecting &lt;em&gt;tools&lt;/em&gt; &amp;gt; &lt;em&gt;open a shell here&lt;/em&gt;&lt;/li&gt;
+  &lt;li&gt;From this step on everything will be done in shell. First all required ruby gems need to be installed: &lt;code&gt;bundle install&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;From here I’ve followed instructions from &lt;a href=&quot;http://code.dblock.org/octopress-setting-up-a-blog-and-contributing-to-an-existing-one&quot;&gt;dBlog.org&lt;/a&gt; article’s last part except cloning, since it was already done:&lt;/li&gt;
+&lt;/ol&gt;
+&lt;pre&gt;
+username.github.com$ git checkout source
+username.github.com$ mkdir _deploy
+username.github.com$ cd _deploy
+username.github.com/_deploy$ git init
+username.github.com/_deploy$ git remote add origin git@github.com:username/username.github.com.git
+username.github.com/_deploy$ git pull origin master
+username.github.com/_deploy$ cd ..
+username.github.com$
+&lt;/pre&gt;
+
+&lt;h2 id=&quot;creating-new-post&quot;&gt;Creating new post&lt;/h2&gt;
+&lt;p&gt;Now I was ready to post my new post and I did it as following:&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;&lt;code&gt;rake new_post[&quot;Post Title&quot;]&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;edit post, I’m using &lt;a href=&quot;http://markdownpad.com/&quot;&gt;MarkdownPad for Windows&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;code&gt;rake generate&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;code&gt;rake deploy&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;code&gt;git add .&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;code&gt;git commit -m &#39;some comments&#39;&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;code&gt;git push origin source&lt;/code&gt;&lt;/li&gt;
+&lt;/ol&gt;
+</description>
+        <pubDate>Thu, 14 Mar 2013 13:42:00 +0100</pubDate>
+        <link>http://luhtonen.github.com/octopress/blog/github/windows/2013/03/14/how-to-contribute-to-existing-octopress-blog-from-other-computer.html</link>
+        <guid isPermaLink="true">http://luhtonen.github.com/octopress/blog/github/windows/2013/03/14/how-to-contribute-to-existing-octopress-blog-from-other-computer.html</guid>
+        
+        
+        <category>octopress</category>
+        
+        <category>blog</category>
+        
+        <category>github</category>
+        
+        <category>windows</category>
+        
+      </item>
+    
+      <item>
+        <title>How to check AIX version and other useful information</title>
+        <description>&lt;p&gt;I was sending technical request to our support team and needed to find out what is a version of operating system. I’ve been working with many different Unix/Linux flavors and always used &lt;code&gt;uname -a&lt;/code&gt;. I was surpised to find out that on AIX this command shows OS version only with 1 digit.&lt;/p&gt;
+
+&lt;p&gt;I’ve already noticed that since AIX default shell is KSH, some things are done differently on it. After a brief research I’ve found command which would produce information I needed: &lt;code&gt;oslevel&lt;/code&gt;.
+&lt;code&gt;
+&amp;gt; oslevel -g
+Fileset                                 Actual Level        Maintenance Level
+-----------------------------------------------------------------------------
+bos.rte                                 7.1.1.16            7.1.0.0
+&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;In IBM’s &lt;a href=&quot;http://pic.dhe.ibm.com/infocenter/aix/v7r1/index.jsp?topic=%2Fcom.ibm.aix.cmds%2Fdoc%2Faixcmds4%2Foslevel.htm&quot;&gt;AIX 7.1 Information Center&lt;/a&gt; can find more information about this command and many other.&lt;/p&gt;
+</description>
+        <pubDate>Tue, 22 Jan 2013 19:22:00 +0100</pubDate>
+        <link>http://luhtonen.github.com/aix/unix/2013/01/22/how-to-check-aix-version-and-other-useful-information.html</link>
+        <guid isPermaLink="true">http://luhtonen.github.com/aix/unix/2013/01/22/how-to-check-aix-version-and-other-useful-information.html</guid>
+        
+        
+        <category>aix</category>
+        
+        <category>unix</category>
+        
+      </item>
+    
+      <item>
+        <title>Create simple GWT project with Eclipse</title>
+        <description>&lt;p&gt;Google Web Toolkit is one of popular web UI development frameworks and I’ve decided to dig into it. There is different ways of creating GWT project: command line tools or even manually creating every bit of it, but I prefer to use IDE for my development work. Even I don’t see Eclipse as IDE, but it’s better than command line tools. But even when Google officially support Eclipse as it’s primer tool for Android and GWT development, GWT plugin doesn’t provide straight way of creating simple GWT project, but you have to make few steps to achieve it.&lt;/p&gt;
+
+&lt;h2 id=&quot;preparation&quot;&gt;Preparation&lt;/h2&gt;
+&lt;p&gt;To create GWT project with Eclipse, need to download and install &lt;a href=&quot;http://www.oracle.com/technetwork/java/index.html&quot;&gt;Java&lt;/a&gt; and &lt;a href=&quot;http://www.eclipse.org/downloads/&quot;&gt;Eclipse&lt;/a&gt; and then GWT plugin for Eclipse.&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;start Eclipse&lt;/li&gt;
+  &lt;li&gt;select menu Help &amp;gt; Eclipse Marketplace…&lt;/li&gt;
+  &lt;li&gt;in Find field type: GWT and press GO&lt;/li&gt;
+  &lt;li&gt;search for your version of Google Plugin for Eclipse and press Install button&lt;/li&gt;
+  &lt;li&gt;follow on screen instructions and install plugin&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;There would be added GWT button to Eclipse toolbar.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/new-gwt-project/gwt-button.png&quot; alt=&quot;GWT button on Eclipse toolbar&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;In order to create simple project we need to execute 4 steps:&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;Create GWT project&lt;/li&gt;
+  &lt;li&gt;Define GWT module&lt;/li&gt;
+  &lt;li&gt;Add an entry point class&lt;/li&gt;
+  &lt;li&gt;Provide web page&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h2 id=&quot;create-gwt-project&quot;&gt;Create GWT Project&lt;/h2&gt;
+&lt;p&gt;Now we’re ready to create our first, I wouldn’t be original, HelloWorld GWT project.&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;click on GWT button and select New Web Application Project…
+&lt;img src=&quot;/images/new-gwt-project/create-new-gwt-project.png&quot; alt=&quot;Create New Web Application Project…&quot; /&gt;&lt;/li&gt;
+  &lt;li&gt;type Project name: HelloWorld&lt;/li&gt;
+  &lt;li&gt;choose Package&lt;/li&gt;
+  &lt;li&gt;select GWT SDK, default is good&lt;/li&gt;
+  &lt;li&gt;deselect Use Google App Engine, it wouldn’t be needed for this project&lt;/li&gt;
+  &lt;li&gt;‘Add support for listing on Google Apps Marketplace’ is deselecte by default and this is ok&lt;/li&gt;
+  &lt;li&gt;deselect ‘Generate project sample code’ since it wouldn’t be needed and would only mess with our project
+&lt;img src=&quot;/images/new-gwt-project/new-gwt-project.png&quot; alt=&quot;New GWT project screen&quot; /&gt;&lt;/li&gt;
+  &lt;li&gt;click Finish&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;We would have simple empty GWT project in Project Explorer.
+&lt;img src=&quot;/images/new-gwt-project/gwt-empty-project.png&quot; alt=&quot;Empty GWT Project&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;There is 2 important directories in this project:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;code&gt;src&lt;/code&gt; with empty base package; there would be placed module configuration file and all Java classes would be put also there&lt;/li&gt;
+  &lt;li&gt;&lt;code&gt;war&lt;/code&gt; were would be located HTML pages&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;define-gwt-module&quot;&gt;Define GWT Module&lt;/h2&gt;
+&lt;p&gt;Now we need to define module for our GWT project. We can create as many modules for one project as we like, it would be useful for example for complex projects to devide functionality and responsibilities between modules and to enabling easier cooperation in bigger development teams. But for our project and generally for any simple project one module would be enough.&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;select base package under src directory&lt;/li&gt;
+  &lt;li&gt;from menu select File &amp;gt; New &amp;gt; Other and then under Google Web Toolkit select Module (or you can use mouse right click and skip File part) and click Next
+&lt;img src=&quot;/images/new-gwt-project/new-gwt-module-selection.png&quot; alt=&quot;Select New GWT Module&quot; /&gt;&lt;/li&gt;
+  &lt;li&gt;Source folder and Package should be selected automatically&lt;/li&gt;
+  &lt;li&gt;give Module name: HelloWorld and click Finish
+&lt;img src=&quot;/images/new-gwt-project/create-new-gwt-module.png&quot; alt=&quot;Create New GWT Module&quot; /&gt;&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;Module configuration file &lt;code&gt;HelloWorld.gwt.xml&lt;/code&gt; and empty &lt;code&gt;.client&lt;/code&gt; package would be added to our base package.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/new-gwt-project/new-gwt-module.png&quot; alt=&quot;Module creation elements&quot; /&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;add-an-entry-point-class&quot;&gt;Add an Entry Point Class&lt;/h2&gt;
+&lt;p&gt;Now we need to add entry point class to our project. We can have multiple entry points, but only one can be ‘active’ at a time. So in most cases one entry point would be enough.&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;select base package under src directory&lt;/li&gt;
+  &lt;li&gt;from menu select File &amp;gt; New &amp;gt; Other and then under Google Web Toolkit select Entry Point Class and press Next
+&lt;img src=&quot;/images/new-gwt-project/select-entry-point.png&quot; alt=&quot;Select new entry point class&quot; /&gt;&lt;/li&gt;
+  &lt;li&gt;Source folder, Module and Package would be selected automatically&lt;/li&gt;
+  &lt;li&gt;give class a Name: HelloWorld and press Finish&lt;/li&gt;
+  &lt;li&gt;add following code in new class method &lt;code&gt;onModuleLoad()&lt;/code&gt;:&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;&lt;code&gt;java
+RootPanel.get().add(new Label(&quot;Hello, World!&quot;));
+&lt;/code&gt;
+Remember to fix imports&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;java
+import com.google.gwt.user.client.ui.Label;
+import com.google.gwt.user.client.ui.RootPanel;
+&lt;/code&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;provide-the-web-page&quot;&gt;Provide the Web Page&lt;/h2&gt;
+&lt;p&gt;Last thing we need is HTML page to be shown to end users.&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;select war directory&lt;/li&gt;
+  &lt;li&gt;from menu select File &amp;gt; New &amp;gt; Other and then under Google Web Toolkit select HTML Page and press Next
+&lt;img src=&quot;/images/new-gwt-project/select-new-html-page.png&quot; alt=&quot;Select HTML Page&quot; /&gt;&lt;/li&gt;
+  &lt;li&gt;Project and Path should be already selected&lt;/li&gt;
+  &lt;li&gt;give File name: HelloWorld and press Finish
+&lt;img src=&quot;/images/new-gwt-project/create-new-web-page.png&quot; alt=&quot;Create new HTML Page&quot; /&gt;&lt;/li&gt;
+  &lt;li&gt;some plugins generate link to javascript source incorrectly, it need to be fixed to &lt;code&gt;&amp;lt;base package&amp;gt;.&amp;lt;module name&amp;gt;/&amp;lt;base package&amp;gt;.&amp;lt;page name&amp;gt;.nocache.js&lt;/code&gt;, for example &lt;code&gt;org.edu.gwt.helloworld.HelloWorld/org.edu.gwt.helloworld.HelloWorld.nocache.js&lt;/code&gt;&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;Now our project is ready.&lt;/p&gt;
+
+&lt;h2 id=&quot;run-application&quot;&gt;Run Application&lt;/h2&gt;
+&lt;p&gt;Now we need to test our new application.&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;select project top level&lt;/li&gt;
+  &lt;li&gt;from run menu select Run As &amp;gt; Web Application
+&lt;img src=&quot;/images/new-gwt-project/run-as.png&quot; alt=&quot;Run as web application&quot; /&gt;&lt;/li&gt;
+  &lt;li&gt;copy URL and paste into browser, this may take awhile, and it would request to install browser plugin&lt;/li&gt;
+  &lt;li&gt;after awhile on page should appear text ‘Hello, World!’&lt;/li&gt;
+&lt;/ol&gt;
+
+</description>
+        <pubDate>Wed, 09 Jan 2013 17:27:00 +0100</pubDate>
+        <link>http://luhtonen.github.com/gwt/google%20web%20toolkit/eclipse/java/2013/01/09/create-simple-gwt-project-with-eclipse.html</link>
+        <guid isPermaLink="true">http://luhtonen.github.com/gwt/google%20web%20toolkit/eclipse/java/2013/01/09/create-simple-gwt-project-with-eclipse.html</guid>
+        
+        
+        <category>gwt</category>
+        
+        <category>google web toolkit</category>
+        
+        <category>eclipse</category>
+        
+        <category>java</category>
+        
+      </item>
+    
+      <item>
+        <title>Blogging with Octopress on GitHub</title>
+        <description>&lt;p&gt;This post is just a reminder to myself, how to publish new posts to my blog.&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;&lt;code&gt;rake new_post[&quot;Post Title&quot;]&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;edit post&lt;/li&gt;
+  &lt;li&gt;&lt;code&gt;rake generate&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;code&gt;rake deploy&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;code&gt;git add .&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;code&gt;git commit -m &#39;some comments&#39;&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;code&gt;git push origin source&lt;/code&gt;&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;Step 1: creates new post&lt;/p&gt;
+
+&lt;p&gt;Step 3: generate blog post from the source&lt;/p&gt;
+
+&lt;p&gt;Step 4: deploy generated post to blog hosted on GitHub&lt;/p&gt;
+
+&lt;p&gt;Step 5: add new post to version control&lt;/p&gt;
+
+&lt;p&gt;Step 6: commit changes to local repository&lt;/p&gt;
+
+&lt;p&gt;Step 7: push source to GitHub&lt;/p&gt;
+</description>
+        <pubDate>Wed, 09 Jan 2013 09:51:00 +0100</pubDate>
+        <link>http://luhtonen.github.com/blogging/octopress/github/2013/01/09/blogging-with-octopress-on-github.html</link>
+        <guid isPermaLink="true">http://luhtonen.github.com/blogging/octopress/github/2013/01/09/blogging-with-octopress-on-github.html</guid>
+        
+        
+        <category>blogging</category>
+        
+        <category>octopress</category>
+        
+        <category>github</category>
+        
+      </item>
+    
+  </channel>
+</rss>
