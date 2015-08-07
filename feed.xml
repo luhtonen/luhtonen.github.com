@@ -5,9 +5,30 @@
     <description></description>
     <link>http://luhtonen.github.com/</link>
     <atom:link href="http://luhtonen.github.com/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Fri, 17 Jul 2015 12:51:18 +0200</pubDate>
-    <lastBuildDate>Fri, 17 Jul 2015 12:51:18 +0200</lastBuildDate>
+    <pubDate>Fri, 07 Aug 2015 15:58:56 +0200</pubDate>
+    <lastBuildDate>Fri, 07 Aug 2015 15:58:56 +0200</lastBuildDate>
     <generator>Jekyll v2.5.3</generator>
+    
+      <item>
+        <title>Change Git Protocol to HTTP/HTTPS</title>
+        <description>&lt;p&gt;By default &lt;code&gt;git&lt;/code&gt; uses &lt;code&gt;git&lt;/code&gt; protocol, which is utilising specific port for communcation between client and server. In some networks this port might be closed and cannot be used to pull or push git commits.&lt;/p&gt;
+
+&lt;p&gt;This problem can be solved by changing protocol for git push/pull requests. To switch to &lt;code&gt;HTTPS&lt;/code&gt; protocol use following command:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;git config --global url.&quot;https://&quot;.insteadOf git://
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;To switch to &lt;code&gt;HTTP&lt;/code&gt; protocol command is similar, but protocol is different:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;git config --global url.&quot;http://&quot;.insteadOf git://
+&lt;/code&gt;&lt;/pre&gt;
+</description>
+        <pubDate>Fri, 07 Aug 2015 15:53:32 +0200</pubDate>
+        <link>http://luhtonen.github.com/2015/08/07/change-git-protocol-to-http-https.html</link>
+        <guid isPermaLink="true">http://luhtonen.github.com/2015/08/07/change-git-protocol-to-http-https.html</guid>
+        
+        
+      </item>
     
       <item>
         <title>sbt Error: URI had an athority component</title>
@@ -554,31 +575,6 @@ username.github.com$
         <category>github</category>
         
         <category>windows</category>
-        
-      </item>
-    
-      <item>
-        <title>How to check AIX version and other useful information</title>
-        <description>&lt;p&gt;I was sending technical request to our support team and needed to find out what is a version of operating system. I’ve been working with many different Unix/Linux flavors and always used &lt;code&gt;uname -a&lt;/code&gt;. I was surpised to find out that on AIX this command shows OS version only with 1 digit.&lt;/p&gt;
-
-&lt;p&gt;I’ve already noticed that since AIX default shell is KSH, some things are done differently on it. After a brief research I’ve found command which would produce information I needed: &lt;code&gt;oslevel&lt;/code&gt;.
-&lt;code&gt;
-&amp;gt; oslevel -g
-Fileset                                 Actual Level        Maintenance Level
------------------------------------------------------------------------------
-bos.rte                                 7.1.1.16            7.1.0.0
-&lt;/code&gt;&lt;/p&gt;
-
-&lt;p&gt;In IBM’s &lt;a href=&quot;http://pic.dhe.ibm.com/infocenter/aix/v7r1/index.jsp?topic=%2Fcom.ibm.aix.cmds%2Fdoc%2Faixcmds4%2Foslevel.htm&quot;&gt;AIX 7.1 Information Center&lt;/a&gt; can find more information about this command and many other.&lt;/p&gt;
-</description>
-        <pubDate>Tue, 22 Jan 2013 19:22:00 +0100</pubDate>
-        <link>http://luhtonen.github.com/aix/unix/2013/01/22/how-to-check-aix-version-and-other-useful-information.html</link>
-        <guid isPermaLink="true">http://luhtonen.github.com/aix/unix/2013/01/22/how-to-check-aix-version-and-other-useful-information.html</guid>
-        
-        
-        <category>aix</category>
-        
-        <category>unix</category>
         
       </item>
     
